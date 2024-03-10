@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Optikon</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="img/prod.png" rel="shortcut icon" type="image/png"/>
+    <style>
+        @-webkit-keyframes pulse {0% {-webkit-transform: scale(1);-ms-transform: scale(1);transform: scale(1);}50% {-webkit-transform: scale(1.1);-ms-transform: scale(1.1);transform: scale(1.1);}100% {-webkit-transform: scale(1);-ms-transform: scale(1);transform: scale(1);}} @keyframes pulse {0% {-webkit-transform: scale(1);-ms-transform: scale(1);transform: scale(1);}50% {-webkit-transform: scale(1.1);-ms-transform: scale(1.1);transform: scale(1.1);}100% {-webkit-transform: scale(1);-ms-transform: scale(1);transform: scale(1);}} @-webkit-keyframes wobble {0% {-webkit-transform: translateX(0);-ms-transform: translateX(0);transform: translateX(0);}15% {-webkit-transform: translateX(-25%) rotate(-5deg);-ms-transform: translateX(-25%) rotate(-5deg);transform: translateX(-25%) rotate(-5deg);}30% {-webkit-transform: translateX(20%) rotate(3deg);-ms-transform: translateX(20%) rotate(3deg);transform: translateX(20%) rotate(3deg);}45% {-webkit-transform: translateX(-15%) rotate(-3deg);-ms-transform: translateX(-15%) rotate(-3deg);transform: translateX(-15%) rotate(-3deg);}60% {-webkit-transform: translateX(10%) rotate(2deg);-ms-transform: translateX(10%) rotate(2deg);transform: translateX(10%) rotate(2deg);}75% {-webkit-transform: translateX(-5%) rotate(-1deg);-ms-transform: translateX(-5%) rotate(-1deg);transform: translateX(-5%) rotate(-1deg);}100% {-webkit-transform: translateX(0);-ms-transform: translateX(0);transform: translateX(0);}} @keyframes wobble {0% {-webkit-transform: translateX(0);-ms-transform: translateX(0);transform: translateX(0);}15% {-webkit-transform: translateX(-25%) rotate(-5deg);-ms-transform: translateX(-25%) rotate(-5deg);transform: translateX(-25%) rotate(-5deg);}30% {-webkit-transform: translateX(20%) rotate(3deg);-ms-transform: translateX(20%) rotate(3deg);transform: translateX(20%) rotate(3deg);}45% {-webkit-transform: translateX(-15%) rotate(-3deg);-ms-transform: translateX(-15%) rotate(-3deg);transform: translateX(-15%) rotate(-3deg);}60% {-webkit-transform: translateX(10%) rotate(2deg);-ms-transform: translateX(10%) rotate(2deg);transform: translateX(10%) rotate(2deg);}75% {-webkit-transform: translateX(-5%) rotate(-1deg);-ms-transform: translateX(-5%) rotate(-1deg);transform: translateX(-5%) rotate(-1deg);}100% {-webkit-transform: translateX(0);-ms-transform: translateX(0);transform: translateX(0);}} @-webkit-keyframes flash {0%, 100%, 50% {opacity: 1;}25%, 75% {opacity: 0;}} @keyframes flash {0%, 100%, 50% {opacity: 1;}25%, 75% {opacity: 0;}} @-webkit-keyframes bounce {0%, 100%, 20%, 50%, 80% {-webkit-transform: translateY(0);-ms-transform: translateY(0);transform: translateY(0);}40% {-webkit-transform: translateY(-30px);-ms-transform: translateY(-30px);transform: translateY(-30px);}60% {-webkit-transform: translateY(-15px);-ms-transform: translateY(-15px);transform: translateY(-15px);}} @keyframes bounce {0%, 100%, 20%, 50%, 80% {-webkit-transform: translateY(0);-ms-transform: translateY(0);transform: translateY(0);}40% {-webkit-transform: translateY(-30px);-ms-transform: translateY(-30px);transform: translateY(-30px);}60% {-webkit-transform: translateY(-15px);-ms-transform: translateY(-15px);transform: translateY(-15px);}} *{ -webkit-box-sizing: border-box; box-sizing: border-box; } html, body{ margin:0; padding:0; } body{ font-family: sans-serif; overflow-x: hidden; min-width: 320px;; } .container{ max-width: 1200px; margin:0 auto; } #sec1{ padding-top: 32px; background: url(img/s1bg.jpg); background-position: center center; background-size: cover; padding-bottom: 90px; } .main-navigation{ list-style-type:none; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin:0 100px; margin-bottom: 5px; padding: 0; } .main-navigation li{ background-color: rgb(255, 37, 37); border:3px dotted rgb(255, 247, 1); border-radius:18px; color:#fff; width:100%; max-width: 245px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; cursor: pointer; -webkit-transition: .3s ease; -o-transition: .3s ease; transition: .3s ease; height:35px; text-align: center; } .main-navigation li:hover{ color:rgb(255, 247, 1); } .navigation-small-text{ font-size: 11px; } h1{ color: rgb(255, 241, 1); text-shadow: rgb(232, 105, 48) 6px 5px 0px; font-weight: bold; font-size: 66px; margin-bottom: 20px; } .sec1-content-wrapper{ display: -webkit-box; display: -ms-flexbox; display: flex; margin-top: -100px; } .sec1-left, .sec1-right{ width:50%; } .sec1-left{ padding-top: 100px; } .form{ max-width: 360px; width:100%; border:2px solid rgb(255 180 0); border-radius: 15px; } .sec1-subtitle{ margin-bottom: 60px; } .form-title{ color:rgb(226, 14, 3); text-align: center; font-size: 26px; font-weight: bold; padding:26px 0; } .form-timer{ border-top:8px solid #fff; border-bottom:8px solid #fff; background-color: rgb(216, 33, 25); color:#fff; text-align: center; font-size: 40px; font-weight: bold; } .form input{ display: block; background-color: transparent; border: 1px solid #000; border-radius: 5px; margin:0 auto; width:100%; max-width: 300px; margin-top:20px; padding:10px; font-size:18px; }
+         /* .form button{ background:-webkit-gradient(linear, left top, left bottom, from(rgb(255, 75, 66)), to(rgb(201, 31, 23))); background:-o-linear-gradient(rgb(255, 75, 66), rgb(201, 31, 23)); background:linear-gradient(rgb(255, 75, 66), rgb(201, 31, 23)); color:#fff; border:none; margin:0 auto; display: block; font-size: 24px;; margin-top: 20px; border-radius: 10px; padding:10px 30px; cursor: pointer; } */
+        .pulse-animation{ display: block; -webkit-animation-name: pulse; animation-name: pulse; -webkit-animation-delay: 0s; animation-delay: 0s; -webkit-animation-duration: 1s; animation-duration: 1s; -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite; } .button-finger{ width:50px; -webkit-animation-name: wobble; animation-name: wobble; -webkit-animation-delay: 0s; animation-delay: 0s; -webkit-animation-duration: 2s; animation-duration: 2s; -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite; right: 45px; position: absolute; } .finger-wrapper{ display: block; position: relative; height: 50px; } .form-text{ font-size: 15px; font-style: italic; color: rgb(0, 0, 0); text-align: center; padding: 10px; }
+        .big_eye{ border-radius: 50%; width: 537px; height:537px; background-image: url(img/1.jpg); background-position: -200px; background-size: cover; background-repeat: no-repeat; border: 4px solid rgb(255, 180, 1); -webkit-transition: .3s ease; -o-transition: .3s ease; transition: .3s ease; } .big_eye:hover{ -webkit-transform: scale(1.05); -ms-transform: scale(1.05); transform: scale(1.05); } .sec-right-img-wrapper{ position: relative; } .small_hand{ border-radius: 50%; width: 193px; height:193px; background-image: url(img/2.jpg); background-position: -30px; background-size: cover; background-repeat: no-repeat; border: 4px solid rgb(255, 241, 1); -webkit-transition: .3s ease; -o-transition: .3s ease; transition: .3s ease; position: absolute; top: 267px; left: -102px; } .small_hand:hover{ -webkit-transform: scale(1.05); -ms-transform: scale(1.05); transform: scale(1.05); } .small_prod{ border-radius: 50%; width: 193px; height:193px; background-color: #fff; background-image: url(img/prod.png); background-position: -5px; background-size: cover; background-repeat: no-repeat; border: 4px solid rgb(255, 241, 1); -webkit-transition: .3s ease; -o-transition: .3s ease; transition: .3s ease; position: absolute; top: 412px; left: 115px; } .small_prod:hover{ -webkit-transform: scale(1.05); -ms-transform: scale(1.05); transform: scale(1.05); } .small_caps{ border-radius: 50%; width: 153px; height:153px; background-color: #fff; background-image: url(img/caps.png); background-position: -5px; background-size: cover; background-repeat: no-repeat; border: 4px solid rgb(255, 180, 1); -webkit-transition: .3s ease; -o-transition: .3s ease; transition: .3s ease; position: absolute; top: 371px; left: 368px; } .small_caps:hover{ -webkit-transform: scale(1.05); -ms-transform: scale(1.05); transform: scale(1.05); } .discount{ position: relative; display: -webkit-box; display: -ms-flexbox; display: flex; max-width: 350px; width:100%; height:192px; position: absolute; background-image: url(img/sale.png); color:#fff; background-size:cover ; top: 400px; left: -180px; -webkit-transform: rotate(15deg); -ms-transform: rotate(15deg); transform: rotate(15deg); } .discount-triangle{ position: absolute; top: 80px; left: 25px; font-size: 40px; } .discount-price{ position: absolute; top: 65px; left: 149px; font-size: 20px; -webkit-transform: rotate(356deg); -ms-transform: rotate(356deg); transform: rotate(356deg); text-align: center; } .price-small{ color: rgb(180, 180, 180)!important; -webkit-text-decoration-line: line-through !important; text-decoration-line: line-through !important; } .flex-container{ display: -webkit-box; display: -ms-flexbox; display: flex; } #sec2{ background-image: url(img/s2bg.jpg); background-size: cover; background-position: 50% 0%; background-repeat: no-repeat; background-attachment: fixed; padding: 30px 0; position: relative; } #sec2 h3{ margin-top: 0; text-align: center; font-size:25px; margin:0 auto; width:100%; max-width: 800px; } .sec2-subtitle{ margin-top: 0; text-align: right; font-size:30px; margin:0 auto; width:100%; max-width: 800px; font-weight: bold; } .s2list-wrapper{ position: relative; height: 525px; } .s2list-bg{ width: 280.02px; height: 524.908px; background-image: url(img/s2list.png); background-repeat: no-repeat; background-size: contain; position: absolute; top:0; z-index: 10; left: 145px; } .s2list{ list-style-type: none; top: 0; } .s2list li{ border-radius: 30px; background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(215, 215, 215)), to(rgb(234, 237, 238))); background-image: -o-linear-gradient(rgb(215, 215, 215), rgb(234, 237, 238)); background-image: linear-gradient(rgb(215, 215, 215), rgb(234, 237, 238)); height: 67px; /* display: flex; align-items: center; */ } .s2list li:nth-child(1){ position: absolute; z-index: 5; width: 600px; padding-left: 60px; top: 33px; left: 377px; } .s2list li:nth-child(2){ position: absolute; z-index: 5; width: 670px; padding-left: 60px; top: 135px; left: 307px; } .s2list li:nth-child(3){ position: absolute; z-index: 5; width: 740px; padding-left: 60px; top: 235px; left: 235px; } .s2list li:nth-child(4){ position: absolute; z-index: 5; width: 670px; padding-left: 60px; top: 335px; left: 302px; } .s2list li:nth-child(5){ position: absolute; z-index: 5; width: 600px; padding-left: 60px; top: 435px; left: 373px; } .s2list li div{ top: 50%; position: absolute; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); } .s2-pic img{ width: 100%; max-width: 405px; display: block; margin: 0 auto; } .max-width-800{ max-width: 800px; margin:0 auto; } .yellow-banner{ width:40%; } .s2-pic{ width:60%; } .yellow-banner{ margin-right: 10px; margin-top: 90px; max-height: 140px; background-color: rgb(255, 217, 1); display: -webkit-box; display: -ms-flexbox; display: flex; font-size: 27px; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding:20px; font-weight: bold; line-height: 50px; } .big-pic, .center-list{ width:50%; } .big-pic{ border:11px ridge rgb(228, 228, 228); background: url(img/s3bg.jpg); display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack:end; -ms-flex-pack:end; justify-content:flex-end; -webkit-box-align:center; -ms-flex-align:center; align-items:center; } .big-pic img{ max-width: 380px; } .center-list{ padding:30px; } .center-list h3{ font-size: 25px; text-align: center; } .center-list ul{ list-style-type: none; } .center-list ul li{ display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; font-size: 20px; } .center-list ul li span{ font-family: "Open Sans", sans-serif; color:rgb(255, 217, 1); font-size: 85px; vertical-align: middle; font-weight: bold; display: inline-block; margin-right: 20px; } .center-list-container{ max-width: 500px; } #sec4 .center-list{ padding-right: 0; padding-left: 0; } #sec4 .center-list-container{ margin-left: auto; } #sec4 .big-pic{ -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; position: relative; height: unset; } #sec4 .big-pic img{ max-width: 100%; padding-left: 100px; position: absolute; } #sec4 .center-list ul { padding-left: 40px; } #sec4 .center-list ul li{ display: block; position: relative; } #sec4 .center-list ul li{ font-size: 17px; margin-bottom: 20px; padding-right: 60px; line-height: 21px; } .attencion{ width:40px; fill: rgb(255, 199, 1); position: absolute; left: -50px; } .s4-bigpic-text{ position: absolute; font-size: 30px; width: 196px; text-align: center; left: 252px; } .s4-1-text{ position: absolute; font-size: 20px; width: 82px; text-align: center; left: 93px; top: 243px; font-weight: bold; } .s4-2-text{ position: absolute; font-size: 18px; width: 218px; text-align: center; left: 122px; top: 176px; font-weight: bold; } .s4-3-text{ position: absolute; font-size: 18px; width: 218px; text-align: center; left: 316px; top: 121px; font-weight: bold; } .s4-4-text{ position: absolute; font-size: 18px; width: 113px; text-align: center; left: 466px; top: 229px; font-weight: bold; } .s4-5-text{ position: absolute; font-size: 18px; width: 113px; text-align: center; left: 440px; top: 575px; font-weight: bold; } .s4-6-text{ position: absolute; font-size: 18px; width: 165px; text-align: center; left: 267px; top: 679px; font-weight: bold; } .s4-7-text{ position: absolute; font-size: 18px; width: 72px; text-align: center; left: 162px; top: 606px; font-weight: bold; } #sec5{ padding:30px 0; background: url(img/s5bg.jpg); background-size: cover; } #sec5 h4{ color:rgb(216, 18, 9); text-align: center; max-width: 336px; margin:0 auto; -webkit-animation-name: flash; animation-name: flash; -webkit-animation-delay: 0s; animation-delay: 0s; -webkit-animation-duration: 2s; animation-duration: 2s; -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite; font-size: 25px; } .s5-items-wrapper{ position: relative; height: 850px; } .s5-item-title{ font-size: 21px; font-weight: bold; color: rgb(0, 0, 0); text-align: center; } .s5-item-text{ max-width: 110px; text-align: center; margin-top: 1px; font-size: 14px; } .s5-item-1{ width:220px; height:220px; background: url(img/s5-1.png); background-size: contain; background-repeat: no-repeat; background-position: 20px center; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; position: absolute; top:110px; left:350px; cursor: pointer; } .s5-item-2{ width:220px; height:220px; background: url(img/s5-2.png); background-size: contain; background-repeat: no-repeat; background-position: 20px center; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; position: absolute; top:110px; left: 670px; cursor: pointer; } .s5-item-3{ width:220px; height:220px; background: url(img/s5-3.png); background-size: contain; background-repeat: no-repeat; background-position: 20px center; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; position: absolute; top:320px; left: 900px; cursor: pointer; } .s5-item-4{ width:220px; height:220px; background: url(img/s5-4.png); background-size: contain; background-repeat: no-repeat; background-position: 20px center; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; position: absolute; top:625px; left: 670px; cursor: pointer; } .s5-item-5{ width:220px; height:220px; background: url(img/s5-5.png); background-size: contain; background-repeat: no-repeat; background-position: 20px center; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; position: absolute; top:625px; left: 344px; cursor: pointer; } .s5-item-6{ width:220px; height:220px; background: url(img/s5-6.png); background-size: contain; background-repeat: no-repeat; background-position: 20px center; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; position: absolute; top:315px; left: 120px; cursor: pointer; } .s5-text-inside{ position: absolute; max-width: 500px; top: 340px; left: 377px; font-size: 18px; } #sec6{ padding:30px 0; background: url(img/s6bg.jpg); background-size: cover; background-repeat: no-repeat; } #sec6 h4{ font-size: 33px; text-align: center; max-width: 500px; margin:0 auto; } .s6-image-block{ background-image: url(img/s6list.png); background-size: contain; width:890px; height:160px; margin:0 auto; margin-top: 30px; position: relative; } .s6-n1{ font-size: 46px; width: 50px; height: 50px; font-weight: bold; line-height: 1.6; color: rgb(212, 244, 156); left: 51px; top: 10px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; position: relative; } .s6-n2{ font-size: 46px; width: 50px; height: 50px; font-weight: bold; line-height: 1.6; color: rgb(156, 244, 224); left: 238px; top: -40px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; position: relative; } .s6-n3{ font-size: 46px; width: 50px; height: 50px; font-weight: bold; line-height: 1.6; color: rgb(48, 202, 232); left: 419px; top: -88px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; position: relative; } .s6-n4{ font-size: 46px; width: 50px; height: 50px; font-weight: bold; line-height: 1.6; color: rgb(102, 162, 238); left: 602px; top: -138px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; position: relative; } .s6-n5{ font-size: 46px; width: 50px; height: 50px; font-weight: bold; line-height: 1.6; color: rgb(199, 156, 244); left: 787px; top: -186px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; position: relative; } .s6-image-text-content{ list-style-type: none; padding: 0; margin: 0; width: 890px; display: -webkit-box; display: -ms-flexbox; display: flex; margin:0 auto; } .s6-image-text-content li{ width: 200px; text-align: center; line-height: 30px; } .s6-list2{ width: 890px; margin: 0 auto; margin-top: 60px; position: relative; display: -webkit-box; display: -ms-flexbox; display: flex; } .s6-list2-item1{ width: 222px; height:370px; background: url(img/s6l2-1.png); background-size: contain; background-repeat: no-repeat; background-position: center bottom; position: relative; } .s6-list2-item-title{ font-size: 21px; text-align: center; font-weight: bold; position: absolute; top: 10px; left: 61px; } .s6-list2-item-center{ position: absolute; top: 165px; left: 91px; } .s6-list2-item-content{ position: absolute; top: 263px; left: 32px; font-size: 12px; max-width: 135px; } .s6-list2-item2{ width: 222px; height:370px; background: url(img/s6l2-2.png); background-size: contain; background-repeat: no-repeat; background-position: center bottom; position: relative; } #sec6 .s6-list2 .s6-list2-item2 .s6-list2-item-content{ font-size: 10px; } .s6-list2-item3{ width: 222px; height:370px; background: url(img/s6l2-3.png); background-size: contain; background-repeat: no-repeat; background-position: center bottom; position: relative; } #sec6 .s6-list2 .s6-list2-item3 .s6-list2-item-content{ font-size: 10px; } .s6-list2-item4{ width: 222px; height:370px; background: url(img/s6l2-4.png); background-size: contain; background-repeat: no-repeat; background-position: center bottom; position: relative; } #sec6 h4.s6-sost-attencion{ color: rgb(216, 18, 9); text-align: center; max-width: 600px; margin: 0 auto; -webkit-animation-name: flash; animation-name: flash; -webkit-animation-delay: 0s; animation-delay: 0s; -webkit-animation-duration: 2s; animation-duration: 2s; -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite; font-size: 18px; margin-top: 30px; } .s6-list2-items{ cursor: pointer; } #sec7{ background-image: url(img/bg7.png); background-size: cover; background-repeat: no-repeat; background-position: center center; } #sec7 h4{ font-weight: bold; color: rgb(48, 202, 232); text-align: center; text-shadow: rgb(92, 36, 11) 5px 4px 3px; -webkit-text-stroke-color: rgb(255, 255, 255); text-transform: uppercase; font-size: 70px; margin-top: 0; padding-top: 40px; } .sec7-title-subtitle{ text-align: center; color: #fff; font-size: 25px; text-shadow: rgb(0, 0, 0) 1px 2px 3px; } .sec7-image{ display: block; margin:0 auto; width: 100%; max-width: 600px; margin-top:-100px; } .composition-wrapper{ background-color: rgba(0, 0, 0, 0.5); z-index: 100; width:100%; display: none; position: fixed; height:100%; -webkit-box-align: center; -ms-flex-align: center; align-items: center; left:0; top:0; padding:30px; } .composition-body{ background: #fff; width:100%; padding:40px; max-width:600px; margin:0 auto; height:100%; max-height: 300px; overflow: auto; } .composition-title{ font-weight: bold; margin-bottom: 30px; } #sec8{ background: url(img/s8bg.jpg); background-size: cover; background-position: 50% 0%; background-repeat: no-repeat; background-attachment: fixed; padding-bottom: 70px; } #sec8 h5{ font-size: 20px; font-weight: bold; color: rgb(0, 0, 0); text-align: center; max-width: 600px; margin:0 auto; padding-top: 30px; } .s8list-wrapper{ position: relative; } .s8list-wrapper img{ display: block; max-width: 800px; width:100%; margin:0 auto; margin-top: 50px; } .s8list-wrapper ul{ list-style-type: none; position: absolute; top:5px; left: 196px; font-weight: bold; } .s8list-wrapper ul li{ display: inline-block; vertical-align: middle; text-align: center; } .s8list-wrapper ul li:nth-child(2){ padding-left: 35px; } .s8list-wrapper ul li:nth-child(3){ padding-left: 56px; } .s8list-wrapper ul li:nth-child(4){ padding-left: 61px; } .s8list-wrapper ul li:nth-child(5){ padding-left: 69px; } .s8list-wrapper ul li:nth-child(6){ padding-left: 50px; } .main-btn{ display: block; font-size: 18px; font-weight: bold; color: rgb(255, 241, 1); text-align: center; margin:0 auto; margin-top:50px; background: rgb(255, 38, 38); text-decoration: none; padding:10px 20px; border-radius: 90px; -webkit-animation-name: bounce; animation-name: bounce; -webkit-animation-delay: 0s; animation-delay: 0s; -webkit-animation-duration: 1s; animation-duration: 1s; -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite; } .btn-wrapper{ max-width: 310px; margin:0 auto; text-align: right; } .button-finger-2{ width: 50px; -webkit-animation-name: wobble; animation-name: wobble; -webkit-animation-delay: 0s; animation-delay: 0s; -webkit-animation-duration: 2s; animation-duration: 2s; -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite; } .s8-big-list-wrap{ width:100%; max-width:800px; min-height: 540px; margin:0 auto; background: url(img/s8-big-list.png); background-position: center center; background-repeat: no-repeat; position: relative; } .s8-big-list-wrap ul{ list-style-type: none; padding: 0; } .s8-big-list-wrap ul li{ display: block; } .s8-big-list-wrap ul li:nth-child(1){ position: absolute; top: 80px; left: 190px; max-width:200px; } .s8-big-list-wrap ul li:nth-child(2){ position: absolute; top:80px; right:160px; max-width:200px; } .s8-big-list-wrap ul li:nth-child(3){ position: absolute; bottom: 58px; left: 178px; max-width:200px; } .s8-big-list-wrap ul li:nth-child(4){ position: absolute; bottom: 96px; right: 152px; max-width:200px; } .s8-big-list-wrap ul li .title{ font-weight: bold; margin-bottom: 10px; font-size: 18px; } .s8-big-list-img{ position: absolute; left:50%; top:50%; -webkit-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); max-width:170px; } .s8-1{ position: absolute; width: 60px; height: 60px; top: -69px; left: -51px; } .s8-2{ position: absolute; width: 60px; height: 60px; top: -69px; right: -20px; } .s8-3{ position: absolute; width: 60px; height: 60px; top: 129px; left: -40px; } .s8-4{ position: absolute; width: 60px; height: 60px; top: 131px; right: -11px; } .s9-left, .s9-right{ width:50%; } .s9-title{ font-size: 37px; font-weight: bold; color: rgb(0, 0, 0); } #shape_UXaNUkCgwx{ fill: rgb(255, 199, 1); display: inline; width:40px; vertical-align: middle; } #sec9{ padding-bottom: 40px; } .s9-left{ padding-left: 180px; } .s9-left ul{ list-style-type: none; padding: 0; } .s9-subtitle{ font-weight: bold; font-size: 19px; } .s9-left ul li{ position: relative; padding-left: 20px; margin-bottom: 30px; font-size: 19px; } .s9-main-pic{ width:100%; } .cert_wrapper{ display: -webkit-box; display: -ms-flexbox; display: flex; } .cert_wrapper img{ max-width: 50%; } .review-title{ text-align: center; } #sec10{ background: url(img/s10bg.jpg); background-size: cover; background-repeat: no-repeat; padding-top: 30px; padding-bottom: 50px; } .review-title{ font-size: 30px; font-weight: bold; max-width: 600px; margin:0 auto; } .reviews_wrapper{ display: -webkit-box; display: -ms-flexbox; display: flex; } .review{ width:33.33%; padding:0 70px; } .review-ava img{ width:100%; max-width:200px; display: block; margin:0 auto; border-radius: 50%; } .reviews_wrapper{ margin-top: 50px; } .review-name{ text-align: center; font-weight: bold; margin-top: 10px; line-height: 25px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; } .review-content{ text-align: center; margin-bottom: 20px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; line-height: 25px; } #sec11{ background: url(img/s11bg.jpg); background-size: cover; background-position: 50% 0%; background-repeat: no-repeat; background-attachment: fixed; padding-bottom: 50px; } .s11-title{ font-size: 31px; font-weight: bold; color: rgb(0, 0, 0); text-align: center; padding:30px 0; max-width:500px; margin:0 auto; } .doctors-wrapper{ max-width: 850px; margin:0 auto; } .doctor{ display: -webkit-box; display: -ms-flexbox; display: flex; margin-bottom: 30px; } .doctor-ava{ max-width:200px; width:100%; } .doctor-ava img{ width:100%; } .doctor-content{ width:100%; background: #fff; border-width: 3px; border-radius: 38px; border-style: solid; border-color: rgb(132, 132, 132); margin-left: 10px; padding:20px; } .doctor-content-title{ margin-bottom: 30px; } .main-btn-second { display: block; font-size: 18px; font-weight: bold; color: #fff; text-align: center; margin: 0 auto; margin-top: 50px; text-decoration: none; padding: 10px 20px; border-radius: 90px; -webkit-animation-name: pulse; animation-name: pulse; -webkit-animation-delay: 0s; animation-delay: 0s; -webkit-animation-duration: 1s; animation-duration: 1s; -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite; background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 106, 0)), to(rgb(238, 9, 121))); background-image: -o-linear-gradient(rgb(255, 106, 0), rgb(238, 9, 121)); background-image: linear-gradient(rgb(255, 106, 0), rgb(238, 9, 121)); } #sec12{ padding:40px; background: url(img/s12bg.jpg); background-size: cover; background-repeat: no-repeat; background-position: center center; padding-bottom: 70px; } .sec-title{ font-size: 33px; font-weight: bold; text-align: center; max-width:500px; margin:0 auto; } .s12-doc{ position: relative; } .item1 img{ display: block; margin:0 auto; } .s12-left{ list-style-type: none; padding: 0; position: relative; } .s12-left li:nth-child(1){ position: absolute; top: -522px; left: 28px; width: 300px; /* border: 1px solid red; */ background: url(img/s12-i1.png); background-size: contain; background-repeat: no-repeat; background-position: center center; height: 112px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding-left: 112px; font-weight: bold; color:#fff; } .s12-icon1 { left: 33px; position: absolute; width: 50px; height: 50px; } .s12-left li:nth-child(2){ position: absolute; top: -302px; left: -19px; width: 300px; /* border: 1px solid red; */ background: url(img/s12-i2.png); background-size: contain; background-repeat: no-repeat; background-position: center center; height: 112px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding-left: 112px; font-weight: bold; color:#fff; } .s12-left li:nth-child(3){ position: absolute; top: -83px; left: 28px; width: 300px; /* border: 1px solid red; */ background: url(img/s12-i3.png); background-size: contain; background-repeat: no-repeat; background-position: center center; height: 112px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding-left: 112px; font-weight: bold; color:#fff; } .s12-left li:nth-child(4){ position: absolute; top: -523px; right: 28px; width: 300px; /* border: 1px solid red; */ background: url(img/s12-i4.png); background-size: contain; background-repeat: no-repeat; background-position: center center; height: 112px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding-left: 112px; font-weight: bold; color:#fff; } .s12-left li:nth-child(5){ position: absolute; top: -304px; right: -15px; width: 300px; /* border: 1px solid red; */ background: url(img/s12-i5.png); background-size: contain; background-repeat: no-repeat; background-position: center center; height: 112px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding-left: 112px; font-weight: bold; color:#fff; } .s12-left li:nth-child(6){ position: absolute; top: -90px; right: 26px; width: 300px; /* border: 1px solid red; */ background: url(img/s12-i6.png); background-size: contain; background-repeat: no-repeat; background-position: center center; height: 112px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding-left: 112px; font-weight: bold; color:#fff; } #sec13{ padding:30px; } .sub-title{ font-size: 18px; font-weight: bold; color: rgb(84, 84, 84); letter-spacing: 6px; text-align: center; margin:20px auto; margin-bottom: 50px; } .shipping-wrapper{ max-width: 920px; margin:0 auto; } .shipping-icon{ width:84px; height:91px; } .shipping-icon1{ width:76px; height:91px; } .shipping-icon3{ width:63px; height:91px; } .shipping-wrapper ul{ list-style-type: none; display: -webkit-box; display: -ms-flexbox; display: flex; } .shipping-wrapper ul li{ display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; text-align: center; width:25%; line-height: 25px; position: relative; } .shipping-wrapper ul li svg{ display: block; margin:0 auto } .shape_ZDUuhGXwKd{ width:40px; left:200px; position: absolute; -webkit-transform: rotate(-90deg); -ms-transform: rotate(-90deg); transform: rotate(-90deg); } .s13left ul{ list-style-type: none; } .s13right img{ max-width: 100%; } .s13left{ font-size: 20px; } #sec14{ background: url(img/s14bg.jpg); background-size: cover; padding:40px 0; padding-bottom: 30px; } .order-sub-title{ text-align: center; font-size: 24px; margin-top: 20px; margin-bottom: 30px; } .s14-left, .s14-right{ width:50%; } .s14-left{ display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; position: relative; } .s14-left img{ width:100%; max-width: 700px; margin-top: -100px; } .bottom-discount{ top: 1px; left: 205px; } @media screen and (max-width:1200px){.sec1-left{padding-top: 40px;} .sec-right-img-wrapper{ max-width:500px; margin:0 auto; } nav{ display: none; } h1{ margin-top:0; text-align: center; } .sec1-subtitle{ text-align: center; margin-bottom: 20px; } .sec1-left{ width:100%; -webkit-box-ordinal-group:3; -ms-flex-order:2; order:2; } .sec1-right{ width:100%; -webkit-box-ordinal-group:2; -ms-flex-order:1; order:1; } .sec1-content-wrapper{ -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; margin-top: 0; } .big_eye{ width: 399px; height: 399px; display: block; margin: 0 auto; } .small_hand{ top: 12px; left: 20px; /* right: 8px; */ width: 124px; height: 124px; } .small_prod{ top: 221px; left: -5px; width: 193px; height: 193px; } .small_caps{ top: 188px; left: 347px; width: 153px; height: 153px; } .form{ margin:0 auto; } .discount{ top: 323px; left: 79px; display:none;} #sec1{ padding-bottom: 20px; } .s2list-bg{ display: none; } .s2list li:nth-child(1), .s2list li:nth-child(2), .s2list li:nth-child(3), .s2list li:nth-child(4), .s2list li:nth-child(5) { margin:0 auto; position: relative; top:unset; left:unset; width:unset; padding-left: 20px; /* margin-left: -20px; */ margin-bottom: 10px; width:100%; max-width:800px; } .s2list-wrapper{ height: unset; } .yellow-banner{ width:100%; margin-top: 20px; margin-right: 0; } .s2-pic{ width:100%; } .flex-container{ -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; } .s2list{ padding-left: 0; } .big-pic{ -ms-flex-item-align: center; -ms-grid-row-align: center; align-self: center; height: 1080px; display: -webkit-box; display: -ms-flexbox; display: flex; width:400px; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; /* align-items: start; */ } .center-list{ -ms-flex-item-align: center; -ms-grid-row-align: center; align-self: center; } .center-list-for-mobile{ margin-top: -1083px; width:400px; } .center-list-container{ max-width:unset; } #sec3{ height: 1108px; } #sec3 .center-list ul{ margin-top: 220px } #sec3 .big-pic img { max-width: 261px; margin-top: -580px; } #sec3 .center-list h3{ margin-top: 0; } #sec4{ padding-bottom: 60px; padding-top: 20px; } #sec4 .big-pic{ background: unset; border:unset; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: start; -ms-flex-align: start; align-items: start; } #sec4 .big-pic img{ padding-left: 0; position: relative; } #sec4 .center-list{ padding: 0; } #sec4 .s4-bigpic-text{ left: 125px; top: 189px; font-size: 24px; } .s4-1-text{ left: -1px; top: 102px; } .s4-2-text{ left: 15px; top: 21px; } .s4-3-text{ left: 181px; top: -15px; } .s4-4-text{ left: 332px; top: 69px; } .s4-5-text{ left: 288px; top: 380px; } .s4-6-text{ left: 145px; top: 475px; } .s4-7-text{ left: 61px; top: 406px; } #sec4 .big-pic{ max-width: 500px; } .s5-items-wrapper{ display: -webkit-box; display: -ms-flexbox; display: flex; /* flex-direction: column; */ -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-wrap: wrap; flex-wrap: wrap; height:unset; } .s5-item-1, .s5-item-2, .s5-item-3, .s5-item-4, .s5-item-5, .s5-item-6 , .s5-text-inside{ position: unset; top:unset; left: unset; -webkit-box-ordinal-group:3; -ms-flex-order:2; order:2; width:50%; background-position: center center; } .s5-text-inside{ -webkit-box-ordinal-group:2; -ms-flex-order:1; order:1; width:100%; max-width: unset; padding:20px; } #sec5 .container{ max-width:500px; } .s6-list-wrapper{ width:100%; } .s6-image-text-content{ width:100%; } .s6-image-block{ max-width: 890px; width:100%; display: -webkit-box; display: -ms-flexbox; display: flex; background-repeat: no-repeat; } .s6-image-block div{ left:unset; top:10px; width:20%; } .s6-image-text-content{ -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; padding:20px; } .s6-image-text-content li{ width: 100%; text-align: left; } .s6-list2{ -ms-flex-wrap: wrap; flex-wrap: wrap; width:500px; } .s6-list2-item1, .s6-list2-item2, .s6-list2-item3, .s6-list2-item4 { width:50%; } .s6-list2-item-center{ top: 134px; left: 111px; } .s6-list2-item-content{ top: 245px; left: 53px; font-size: 13px; } .s6-list2-item-title{ top: -45px; left: 63px; } #sec6 h4.s6-sost-attencion{ margin-top: 103px; } .s6-list2-item-title-bottom{ top: 366px; left: 27px; } #sec8 .flex-order h5{ display: none; } .s8list-wrapper{ display: none; } /* #sec8 .btn-wrapper{ display: none; } */ #sec8{ padding: 10px; } .s8-big-list-img{ display: none; } #sec8 .flex-order{ display: -webkit-box; display: -ms-flexbox; display: flex; } #sec8 h5{ display: none; } #sec8 .container{ display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; } #sec8 .btn-wrapper{ -webkit-box-ordinal-group:3; -ms-flex-order:2; order:2; } #sec8 .s8-big-list-wrap{ -webkit-box-ordinal-group:2; -ms-flex-order:1; order:1; } .s9-left{ padding-left: 0; } #sec9 .container{ -webkit-box-align: center; -ms-flex-align: center; align-items: center; } #sec12 .s12-doc .item1{ display: none; } .s12-left li:nth-child(1), .s12-left li:nth-child(2), .s12-left li:nth-child(3), .s12-left li:nth-child(4), .s12-left li:nth-child(5), .s12-left li:nth-child(6){ position: relative; top:unset; right:unset; left:unset; } .s12-left{ max-width: 600px; margin:0 auto; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; } .s12-left li:nth-child(1), .s12-left li:nth-child(3), .s12-left li:nth-child(5){ -ms-flex-item-align: start; align-self: flex-start; } .s12-left li:nth-child(2), .s12-left li:nth-child(4), .s12-left li:nth-child(6){ -ms-flex-item-align: end; align-self: flex-end; } .shipping-wrapper{ display: none; } #sec13 .sec-title:nth-child(1){ display: none; } #sec13 .sec-title{ margin-top: 0 !important; } #sec13 .sub-title{ display: none; } #sec13 .btn-wrapper{ display: none; } .s13left ul{ padding-left: 0; } #sec13 .flex-container .s13left{ text-align: center; } .s13right{ text-align: center; -webkit-box-ordinal-group:2; -ms-flex-order:1; order:1; } .s13left{ -webkit-box-ordinal-group:3; -ms-flex-order:2; order:2; } .s13right img{ max-width:300px; } .s14-left{ width:100%; } .s14-left img{ max-width: 300px; margin-top: -60px; display: block; margin:0 auto; } .bottom-discount{ position: absolute; left:50%; -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%); transform: translateX(-50%); top: 164px; } .s14-right{ margin:0 auto; } } @media screen and (max-width: 820px) { .big_eye{ background-position: -158px; } #sec8 .s8-big-list-wrap{ width:600px; } .s8-big-list-wrap ul li:nth-child(1){ left: 90px; } .s8-big-list-wrap ul li:nth-child(2){ right: 62px; } .s8-big-list-wrap ul li:nth-child(3){ left: 75px; } .s8-big-list-wrap ul li:nth-child(4){ right: 52px; } #sec11{ padding-left: 10px; padding-right: 10px; } #sec14{ padding-bottom: 30px; } } @media screen and (max-width: 760px) { #sec4 .center-list{ width:100%; padding:0 20px; } } @media screen and (max-width: 620px) { #sec8 .s8-big-list-wrap{ width:500px; background-size: contain; } .s8-big-list-wrap ul li .title{ font-size: 11px; } .s8-big-list-wrap ul li .content{ font-size: 11px; } .s8-big-list-wrap ul li:nth-child(1){ left: 105px; top: 120px; max-width: 130px; } .s8-big-list-wrap ul li:nth-child(2){ left:276px; top: 120px; max-width: 130px; } .s8-big-list-wrap ul li:nth-child(3){ left: 116px; top: 293px; max-width: 122px; } .s8-big-list-wrap ul li:nth-child(4){ left: 278px; top: 293px; max-width: 122px; } .s8-1, .s8-2, .s8-3, .s8-4 { width:30px; height:30px; } .s8-1{ top: -19px; left: -26px; } .s8-2{ top: -21px; right: -10px; } .s8-3{ top: 118px; right: -10px; } .s8-4{ top: 118px; right: -18px; } } @media screen and (max-width: 520px) { .s6-list2{ width:400px; } .s6-list2-item-title{ top: 6px; left: 63px; } .s6-list2-item-center{ top: 176px; left: 82px; } .s6-list2-item-content{ top: 245px; left: 37px; font-size: 13px; } .s6-list2-item-title{ top: 51px; left: 23px; } #sec6 h4.s6-sost-attencion{ margin-top: 35px; } .sec-right-img-wrapper{ max-width: 400px; } .small_hand{ left: 3px; } .small_prod{ left: 4px; } .small_caps{ left: 250px; top: 258px; } .discount{ left: 20px; } #sec4 .big-pic{ max-width:400px; } #sec8 .s8-big-list-wrap{ max-width: 400px; } .s8-big-list-wrap ul li:nth-child(1){ left: 88px; top: 87px; max-width: 100px; font-size: 10px; } .s8-big-list-wrap ul li:nth-child(2){ left: 228px; top: 87px; max-width: 100px; font-size: 10px; } .s8-big-list-wrap ul li:nth-child(3){ left: 86px; top: 234px; max-width: 92px; } .s8-big-list-wrap ul li:nth-child(4){ left: 220px; top: 230px; max-width: 122px; } .s8-big-list-wrap{ min-height: 410px; } .s8-big-list-wrap ul li .title{ font-size: 8px; } .s8-big-list-wrap ul li .content{ font-size: 9px; } .s8-3{ top: 79px; left: -26px; } .s8-4{ left: 88px; top: 85px; } .main-btn{ margin-top: 0; } h1{ font-size: 40px; } .sec1-subtitle{ margin:5px 0; font-size: 20px; } .s4-1-text, .s4-2-text, .s4-3-text, .s4-4-text, .s4-5-text, .s4-6-text, .s4-7-text{ font-size: 14px; } .s4-4-text{ left: 325px; top: 215px; font-size: 10px; width: 50px; } .s5-item-1, .s5-item-2, .s5-item-3, .s5-item-4, .s5-item-5, .s5-item-6, .s5-text-inside{ background-position: center center; } .s6-image-text-content{ margin-top: -60px; } .s6-list2{ margin-top: 0; } .doctor{ display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; } .doctor-content{ margin-right: 10px; } .s14-left, .s14-right{ width:100%; } .s14-left img{ margin-top: -72px; } #sec14 .discount{ left:50%; top:75px; } .cert_wrapper{ -webkit-box-orient:vertical; -webkit-box-direction:normal; -ms-flex-direction:column; flex-direction:column; } .cert_wrapper img{ max-width:100%; } } @media screen and (max-width: 420px) { .big_eye{ width: 290px; height: 290px; background-position: -117px; } h1 { font-size: 34px; } #sec1{ padding-top: 10px; } .small_hand{ width:100px; height:100px; } .small_caps{ left: 203px; top: 159px; width:110px; height:110px; } .small_prod{ width:130px; height:130px; top: 177px; } .discount{ max-width: 277px; height: 150px; top: 262px; } .discount-triangle{ top: 63px; left: 19px; font-size: 33px; } .discount-price{ top: 37px; left: 126px; font-size: 18px; width: 114px; } .big-pic{ width:320px; } .center-list-for-mobile{ width:320px; padding: 10px; } #sec3 .center-list ul{ padding-left: 10px;margin-top:180px } #sec3 .center-list h3{ margin-top: 10px; } #sec4 .big-pic{ width:320px; } .s4-1-text, .s4-2-text, .s4-3-text, .s4-4-text, .s4-5-text, .s4-6-text, .s4-7-text{ font-size: 12px; } #sec4 .s4-bigpic-text { left: 79px; top: 169px; font-size: 17px; } .s4-1-text { left: 4px; top: 102px; } .s4-2-text{ max-width: 70px; left: 68px; top: -14px; } .s4-3-text{ max-width: 70px; left: 200px; top: -25px; } .s4-4-text{ left: 259px; top: 176px; font-size: 9px; } .s4-5-text { left: 242px; top: 298px; max-width: 70px; } .s4-6-text { left: 93px; top: 377px; } .s4-7-text { left: 27px; top: 323px; } .s5-item-1, .s5-item-2, .s5-item-3, .s5-item-4, .s5-item-5, .s5-item-6{ height: 141px; } .s5-item-title{ font-size: 16px; } .s5-item-text{ font-size: 12px; } .s6-image-text-content{ margin-top: -94px; } .s6-list2{ width:320px; } .s6-list2-item-center{ top: 114px; left: 66px; font-size: 12px; } .s6-list2-item-title{ font-size: 15px; top: 9px; left: 29px; } .s6-list2-item-content { top: 183px; left: 26px; font-size: 9px; width: 100px; } #sec6 .s6-list2 .s6-list2-item2 .s6-list2-item-content{ font-size: 8px; } .s6-list2-item1, .s6-list2-item2, .s6-list2-item3, .s6-list2-item4{ height: 270px; } #sec6 .s6-list2 .s6-list2-item3 .s6-list2-item-content{ font-size: 7px; } #sec7 h4{ font-size: 49px; margin-bottom: 10px; } .sec7-image{ margin-top: -40px; } #sec8 .s8-big-list-wrap{ width:320px; } .s8-big-list-wrap ul li .content{ font-size: 7px; } .s8-2 { top: -19px; right: -17px; } .s8-3 { top: 55px; left: -15px; } .s8-big-list-wrap ul li:nth-child(1) { left: 72px; top: 111px; max-width: 80px; } .s8-big-list-wrap ul li:nth-child(2) { left: 182px; top: 111px; max-width: 74px; } .s8-big-list-wrap ul li:nth-child(3){ left: 61px; top: 234px; max-width: 92px; } .s8-big-list-wrap ul li:nth-child(4) { left: 173px; top: 230px; max-width: 122px; } .s8-4 { left: 71px; top: 59px; } #sec8{ padding: 0; } .sec-title{ font-size: 23px; } #sec12{ padding: 0; } .main-btn-second{ margin-left: 10px; margin-right: 10px; } .review{ padding:0 20px; } .s2list li:nth-child(1), .s2list li:nth-child(2), .s2list li:nth-child(3), .s2list li:nth-child(4), .s2list li:nth-child(5){ font-size: 12px; } .btn-wrapper{ max-width: 270px; } .s13right img{ max-width: 275px; margin-top: -50px; margin-bottom: -40px; } }
+
+        /*Slick Slider */
+        .slick-slider { position: relative; display: block; box-sizing: border-box; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; -khtml-user-select: none; -ms-touch-action: pan-y; touch-action: pan-y; -webkit-tap-highlight-color: transparent; } .slick-list { position: relative; display: block; overflow: hidden; margin: 0; padding: 0; } .slick-list:focus { outline: none; } .slick-list.dragging { cursor: pointer; cursor: hand; } .slick-slider .slick-track, .slick-slider .slick-list { -webkit-transform: translate3d(0, 0, 0); -moz-transform: translate3d(0, 0, 0); -ms-transform: translate3d(0, 0, 0); -o-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); } .slick-track { position: relative; top: 0; left: 0; display: block; margin-left: auto; margin-right: auto; } .slick-track:before, .slick-track:after { display: table; content: ''; } .slick-track:after { clear: both; } .slick-loading .slick-track { visibility: hidden; } .slick-slide { display: none; float: left; height: 100%; min-height: 1px; } [dir='rtl'] .slick-slide { float: right; } .slick-slide img { display: block; } .slick-slide.slick-loading img { display: none; } .slick-slide.dragging img { pointer-events: none; } .slick-initialized .slick-slide { display: block; } .slick-loading .slick-slide { visibility: hidden; } .slick-vertical .slick-slide { display: block; height: auto; border: 1px solid transparent; } .slick-arrow.slick-hidden { display: none; }
+
+        /* Form */
+        .bg-white{border-top-right-radius:20px;border-top-left-radius:20px;background:#1e344b}.planshet{margin-bottom:20px;margin:0 auto;padding-top:15px;padding-bottom:25px;display:table}.mobile-block{text-align:center;display:table;margin:0 auto}.planshet .img2{max-width:70%}.sale{height:120px;max-height:120px;border-top-left-radius: 13px;border-top-right-radius: 13px;}.sale>div>p{-webkit-filter: hue-rotate(215deg);filter: hue-rotate(215deg);text-align:center;height:115px;font-size:21px;font-weight:700;width:50%;margin:0 auto;background-image:url(img/sale1.png);background-size:100% 100%;box-sizing:border-box;padding-top:35px;max-width:150px;color:#fff}#form_footer{padding:30px 0 50px;border-bottom-right-radius:13px;border-bottom-left-radius:13px}.clearfix:before,.clearfix:after{display:table;line-height:0;content:""}footer .bet_price{text-align:center;padding:15px 0;margin-bottom:5px;padding-top:0;color:#000}footer .bet_price .old_price{font-size:20px;margin-bottom:10px}footer .bet_price .old_price>span{position:relative}footer .bet_price .new_price{font-size:20px;font-weight:400;margin-bottom:10px;margin-top:0}footer .bet_price .new_price>span{font-weight:700;color:#2196f3;font-size:27px}.counter_wrap{margin-bottom:20px}.counter_wrap>p{color:#000;text-align:center;font-weight:400;font-size:15px;margin-bottom:7px;margin-top:0}#countdown{text-align:center;position:relative}.countHours,.countMinutes,.countSeconds{font-size:33px;font-weight:700;display:inline-block;vertical-align:top;width:60px;height:55px;position:relative;text-align:center;background-image:url(img/num_bg.png);background-size:100% 100%}.timer-block .position{display:block;float:left;height:95px;padding:4px 0 0 4px;width:18px;text-align:left;position:relative;margin-right:7px}.timer-block .digit{letter-spacing:7px!important;position:absolute;top:2px;left:4px;text-align:center;letter-spacing:0;margin:1px 0 0;color:#fff;padding:0 1px;font-size:40px}form{max-width:300px;margin:0 auto}.inp{background-color:#fff;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;border:0;width:100%;height:40px;line-height:normal;line-height:40px;margin-bottom:15px;text-indent:10px;box-sizing:border-box;-webkit-box-sizing:border-box;outline:none!important;font-size:16px}.btn{width:100%;border:0;cursor:pointer;background-color:#2196F3;background-size:100% 100%;width:100%;height:61px;margin:0 auto;-webkit-appearance:none;-moz-appearance:none;appearance:none;display:block;-webkit-box-shadow:2px 2px 0 0 rgb(0 0 0 / 75%);-moz-box-shadow:2px 2px 0 0 rgba(0,0,0,.75);box-shadow:2px 2px 0 0 rgb(0 0 0 / 75%);color:#fff;font-weight:600;font-size:20px;-webkit-appearance:none;margin-top: 20px;}.clearfix:before,.clearfix:after{display:table;line-height:0;content:""}footer .bet_price .old_price>span:before { content: ""; display: block; position: absolute; width: 100%; height: 2px; border-bottom: 2px solid #000; left: 0; top: 49%; } .form.bottom{background: #ffffffdb;}
+    </style>
+        <!-- headstyle-->
+    <style>
+        .fixed_nav{top:-110px;-webkit-transition:1s ease;-o-transition:1s ease;transition:1s ease;border-bottom: 3px solid #084953; line-height:1;font-family:"PT Sans",Helvetica,Arial,sans-serif;position:fixed;width:100%;background-color:rgba(255,255,255,.9);color:#000;z-index:459}.fixed_nav .element{width:50%;display:inline-block;vertical-align:middle;text-align:center}.elements_wrapper{max-width:1300px;margin:0 auto;padding:10px 0}.element .disc_text{text-transform:uppercase;font-weight:700;font-size:31.5px}.element .disc_text span{color:red}.element .timer_wrapper{font-size:52px}.element.button_top_f a{text-decoration:none;background:#2196F3;color:#fff;padding:10px 20px;border-radius:4px;text-transform:uppercase;font-size:35px}@media screen and (max-width:450px){.element.button_top_f a{padding:10px 20px;font-size:25px}.element .disc_text{font-size:22px}.element .timer_wrapper{font-size:38px}}
+      </style>
+</head>
+<body>
+    <div id="ftr" class="fixed_nav">
+		<div class="elements_wrapper">
+			<div class="element">
+				<div class="disc_text">DISKON <span>-50%</span></div>
+				<div class="timer_wrapper">
+					<span class="hours" id="hours">00</span>:<span class="minutes" id="mins">17</span>:<span class="seconds" id="secs">00</span>
+				</div>
+			</div><div class="element button_top_f">
+				<a class="toform" href="#order_form">Pesan</a>
+			</div>
+		</div>
+	</div>
+<div class="wrapper">
+    <div id="sec1">
+        <div class="container">
+            <nav>
+                <ul class="main-navigation">
+                    <li class="sec1">Beranda</li>
+                    <li class="sec4">Kriteria Penggunaan</li>
+                    <li class="navigation-small-text sec5">6 Kesalahan Saat Memilih <br> Suplemen Mata</li>
+                    <li class="navigation-small-text sec6">5 Cara terbaik memilih suplemen mata</li>
+                </ul>
+                <ul class="main-navigation">
+                    <li class="sec7">Optikon Suplemen Mata</li>
+                    <li class="sec10">Peringkat Pengguna</li>
+                    <li class="sec11">Pendapat para ahli</li>
+                    <li class="toform">Pemesanan</li>
+                </ul>
+            </nav>
+            <h1>KAPSUL MATA TERBAIK</h1>
+            <h2 class="sec1-subtitle">Nutrisi Mendalam agar Mata Selalu Bersih dan Sehat</h2>
+            <div class="sec1-content-wrapper">
+                <div class="sec1-left">
+                    <div class="form_wrapper">
+                        <div class="form">
+                            <section class="sale">
+                                <div>
+                                    <p>diskon<br>-50%</p>
+                                </div>
+                            </section>
+                            <footer id="form_footer">
+                                <div class=" clearfix" id="form">
+                                    <div class="bet_price">
+                                        <p class="old_price">Harga lama: <span>780000 IDR</span></p>
+                                        <p class="new_price">Harga baru: <br> <span>390000 IDR</span></p>
+                                    </div>
+                                    <div class="counter_wrap">
+                                        <p>PENAWARAN INI BERAKHIR</p>
+                                        <div class="timer-block countdownHolder countdown_please" id="countdown">
+                                <span class="countHours">
+                                <span class="position">
+                                <span class="digit static hours" style="opacity: 1;">00</span>
+                                </span>
+                                </span>
+                                <span class="countMinutes">
+                                <span class="position">
+                                <span class="digit static mins" style="opacity: 1;">17</span>
+                                </span>
+                                </span>
+                                <span class="countSeconds">
+                                <span class="position">
+                                <span class="digit static secs" style="opacity: 1;">00</span>
+                                </span>
+                                </span>
+                                </div>
+                                </div>
+                                <form action="lead.php" method="post" onsubmit="validateform(this); return false;">
+
+                                <div class="scrollform"></div>
+                                <div>
+                                    <input class="inp" name="name" placeholder="Nama" type="text" required="">
+                                </div>
+                                <div id="for_inp">
+                                    <input class="inp only_number" name="phone" placeholder="Telefon" type="tel" required="">
+                                </div>
+                                <button id="mainButton" class="btn js_submit button__text s__on" type="submit" value="">PESAN</button>
+                                </form>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="sec1-right">
+                    <div class="sec-right-img-wrapper">
+                        <div class="big_eye"></div>
+                        <div class="small_hand"></div>
+                        <div class="small_prod"></div>
+                        <div class="small_caps"></div>
+                        <!-- <div class="discount">
+                            <div class="discount-triangle">50%</div>
+                            <div class="discount-price">
+                                <span class="price-small">780.000 IDR</span> <br>
+                                <span>390.000 IDR/produk</span>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sec2">
+        <div class="container">
+            <h3>5 ALASAN KENAPA HARUS MENGGUNAKAN SUPLEMEN  MATA SEJAK DINI</h3>
+            <div class="sec2-subtitle">Tahukah Anda:</div>
+            <div class="s2list-wrapper">
+                <div class="s2list-bg"></div>
+                <ul class="s2list">
+                    <li><div>Faktanya <b>Ada 1 orang</b> di dunia yang buta setiap <b>5 detik sekali</b></div></li>
+                    <li><div> Lebih dari <b>2 juta orang</b> di negara kita memiliki penglihatan buruk. Saat ini  <b>jumlah kebutaan berkembang pesat</b>, baik di usia tua maupun muda.</div></li>
+                    <li><div>Mata yang lebih mudah terserang penyakit ini adalah ketika kita sering terkena sinar ultraviolet, sinar biru, pencemaran lingkungan, banyak nonton ponsel - komputer, kebiasaan begadang, minum banyak alkohol ...</div></li>
+                    <li><div><b>80% masalah mata dapat diobati dan dicegah dengan perawatan mata yang tepat.</b></div></li>
+                    <li><div>Tetapi makanan biasa tidak bisa menyediakan nutrisi penting yang cukup dan dibutuhkan mata.</div></li>
+                </ul>
+            </div>
+            <div class="flex-container max-width-800">
+                <div class="yellow-banner">
+                    Oleh karena itu, TABLET KRIM MATA AKAN MEMBANTU
+                </div>
+                <div class="s2-pic">
+                    <img src="img/s2pic.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sec3">
+        <div id="fxd" class="flex-container">
+            <div class="big-pic">
+                <img src="img/bigpic.png" alt="">
+            </div>
+            <div class="center-list center-list-for-mobile">
+                <div class="center-list-container">
+                    <h3>SUPLEMEN BERBENTUK KAPSUL UNTUK  MENGOPTIMALKAN PERLINDUNGAN MATA</h3>
+                    <ul>
+                        <li>
+                            <span>1</span>
+                            Membantu menghilangkan mata kering, pegal dan nyeri, penglihatan kabur, nyeri terbakar, kemerahan, cerah, flek hitam beterbangan, air mata hidup ...
+                        </li>
+                        <li>
+                            <span>2</span>
+                            Memelihara organ-organ di mata dan melindungi sistem saraf visual
+                        </li>
+                        <li>
+                            <span>3</span>
+                            Melindungi mata dari kerusakan akibat radiasi, bakteri ...
+                        </li>
+                        <li>
+                            <span>4</span>
+                            Meningkatkan daya tahan, membantu pemulihan mata dengan cepat dari trauma, pembedahan, dan banyak lagi.
+                        </li>
+                        <li>
+                            <span>5</span>
+                            Mencegah penuaan mata, mencegah segala penyakit mata seperti katarak, katarak, mata kering, kelainan refraksi, degenerasi makula, glaukoma, keratitis ...
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sec4">
+        <div class="flex-container">
+            <div class="center-list">
+                <div class="center-list-container">
+                    <h3>ORANG PERLU MENGAMBIL TABLET MATA SEBAGAIMANA MUNGKIN</h3>
+                    <ul>
+                        <li>
+                            <svg class="attencion" viewBox="0 0 24 24"> <path d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"></path> </svg>
+                            <div class="attencion-text">
+                                Ada gejala penglihatan kabur, sakit mata, kemerahan, penglihatan kabur, mata kering, sakit mata, terbakar, cerah, melihat bintik hitam di depan mata, meneteskan air mata ...
+                            </div>
+                        </li>
+                        <li>
+                            <svg class="attencion" viewBox="0 0 24 24"> <path d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"></path> </svg>
+                            <div class="attencion-text">
+                                Bekerja terus menerus selama berjam-jam dengan komputer, telepon atau perangkat elektronik lainnya.
+                            </div>
+                        </li>
+                        <li>
+                            <svg class="attencion" viewBox="0 0 24 24"> <path d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"></path> </svg>
+                            <div class="attencion-text">
+                                Menderita penyakit mata seperti rabun jauh, astigmatisme, rabun dekat, presbiopia, mata kering, katarak, katarak, degenerasi makula, glaukoma, keratitis, uveitis ...
+                            </div>
+                        </li>
+                        <li>
+                            <svg class="attencion" viewBox="0 0 24 24"> <path d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"></path> </svg>
+                            <div class="attencion-text">
+                                Mempersiapkan atau pernah menjalani operasi mata atau cedera mata
+                            </div>
+                        </li>
+                        <li>
+                            <svg class="attencion" viewBox="0 0 24 24"> <path d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"></path> </svg>
+                            <div class="attencion-text">
+                                Bekerja di lingkungan yang tercemar debu dan bakteri.
+                            </div>
+                        </li>
+                        <li>
+                            <svg class="attencion" viewBox="0 0 24 24"> <path d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"></path> </svg>
+                            <div class="attencion-text">
+                                Bekerja di luar ruangan, biarkan diri Anda terkena sinar matahari langsung.
+                            </div>
+                        </li>
+                        <li>
+                            <svg class="attencion" viewBox="0 0 24 24"> <path d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"></path> </svg>
+                            <div class="attencion-text">
+                                Usia 40 tahun ke atas.
+                            </div>
+                        </li>
+                        <li>
+                            <svg class="attencion" viewBox="0 0 24 24"> <path d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"></path> </svg>
+                            <div class="attencion-text">
+                                Memiliki penyakit kronis dengan risiko tinggi komplikasi mata yang merugikan seperti diabetes, tekanan darah tinggi, aterosklerosis, obesitas ...
+                            </div>
+                        </li>
+                        <li>
+                            <svg class="attencion" viewBox="0 0 24 24"> <path d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"></path> </svg>
+                            <div class="attencion-text">
+                                Menggunakan obat-obatan yang dapat menyebabkan kerusakan mata seperti antibiotik, obat anti inflamasi, obat penenang, antidepresan, obat hormonal ...
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="big-pic">
+                <img src="img/s4list.png" alt="">
+                <div class="s4-bigpic-text">
+                    Tanda Anda Terkena penyakit mata
+                </div>
+                <div class="s4-1-text">Air mata keluar terus</div>
+                <div class="s4-2-text">Penglihatan kabur, seperti tertutup kabut</div>
+                <div class="s4-3-text">Ada bintik hitam</div>
+                <div class="s4-4-text">Melihat Gambar seperti terdistors</div>
+                <div class="s4-5-text">Hilangnya penglihatan sentral</div>
+                <div class="s4-6-text">Lihat dua kali, lihat tiga</div>
+                <div class="s4-7-text">Mata kering, mata merah</div>
+            </div>
+        </div>
+    </div>
+    <div id="sec5">
+        <div class="container">
+            <h4>KLIK DI SETIAP KOTAK UNTUK MELIHAT DETAIL</h4>
+            <div class="s5-items-wrapper">
+                <div class="s5-item-1 s5btn">
+                    <span class="s5-item-title">Mitos 1</span>
+                    <span class="s5-item-text">Semakin tinggi kandungan zat individunya, semakin baik</span>
+                </div>
+                <div class="s5-item-2 s5btn">
+                    <span class="s5-item-title">Mitos 2</span>
+                    <span class="s5-item-text">Produk luar negeri lebih baik dari produk dalam negeri</span>
+                </div>
+                <div class="s5-item-3 s5btn">
+                    <span class="s5-item-title">Mitos 3</span>
+                    <span class="s5-item-text">Memilih obat mata yang tidak ada verifikasi BPOM-nya!</span>
+                </div>
+                <div class="s5-item-4 s5btn">
+                    <span class="s5-item-title">Mitos 4</span>
+                    <span class="s5-item-text">Memilih suplemen mata yang belum memiliki testimonial.</span>
+                </div>
+                <div class="s5-item-5 s5btn">
+                    <span class="s5-item-title">Mitos 5</span>
+                    <span class="s5-item-text">Memilih obat mata yang murah</span>
+                </div>
+                <div class="s5-item-6 s5btn">
+                    <span class="s5-item-title">Mitos 6</span>
+                    <span class="s5-item-text">Menggonsumsi banyak jenis obat lebih baik.</span>
+                </div>
+                <div class="s5-text-inside">
+                    <b id="s5title">
+                        <span style="font-size:36px;margin-top: 50px;text-align: center;display: block;">6 kesalahan yang harus dihindari saat memilih dan menggunakan pipet</span>
+                    </b>
+                    <span id="s5content" style="margin-top: 10px;display:block">
+
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sec6">
+        <div class="container">
+            <h4>5 KRITERIA PENTING KETIKA MEMILIH TIPS MATA TABLET</h4>
+            <div class="s6-list-wrapper">
+                <div class="s6-image-block">
+                    <div class="s6-n1">1</div>
+                    <div class="s6-n2">2</div>
+                    <div class="s6-n3">3</div>
+                    <div class="s6-n4">4</div>
+                    <div class="s6-n5">5</div>
+                </div>
+                <ul class="s6-image-text-content">
+                    <li>Mengandung kombinasi nutrisi yang menyehatkan mata termasuk antioksidan (Alpha lipoic acid, Quercetin), Polifenol, Deoksiandrografolida, homo-andrografolida, Vitamin A.</li>
+                    <li>- Bahan-bahn berasal dari alam, sehingga sudah terjamin  keamanannya, tidak menimbulkan efek samping, bahkan jika digunakan untuk waktu yang lama.</li>
+                    <li>- Diawasi dengan ketat, mudah untuk memeriksa keaslian, barang asli melalui segel pada bungkus botol, dan kode batang elektronik</li>
+                    <li>- Harga cocok untuk pemakaian biasa dan jangka panjang.</li>
+                    <li>- Diproduksi oleh perusahaan terkemuka, sesuai dengan aturan, dan terdaftar pada BPOM.</li>
+                </ul>
+            </div>
+            <div class="s6-list2">
+                <div class="s6-list2-item1 s6-list2-items">
+                    <div class="s6-list2-item-title">
+                        Kapsul ini bisa memperbaiki penglihatan
+                    </div>
+                    <div class="s6-list2-item-center">
+                        Antioksidan
+                    </div>
+                    <div class="s6-list2-item-content">
+                        <b>Alpha lipoic acid (ALA) dan Quercetin</b> menghilangkan semua radikal bebas, membantu melindungi struktur mata, mencegah penyakit mata ..
+                    </div>
+                </div>
+                <div class="s6-list2-item2 s6-list2-items">
+                    <div class="s6-list2-item-title">
+                        Kombinasi Herbaldan
+                    </div>
+                    <div class="s6-list2-item-center">
+                        Anti- <br>degenerasi
+                    </div>
+                    <div class="s6-list2-item-content">
+                        <b>Antosianosid dan polifenol </b> adalah senyawa yang dapat meningkatkan mikrosirkulasi dan menjaga fungsi retinal, serta efektif dalam meningkatkan aliran darah ke retina mata
+                    </div>
+                </div>
+                <div class="s6-list2-item3 s6-list2-items">
+                    <div class="s6-list2-item-title s6-list2-item-title-bottom">
+                        Memiliki Peran Penting
+                    </div>
+                    <div class="s6-list2-item-center">
+                        vitamin A
+                    </div>
+                    <div class="s6-list2-item-content">
+                        <b>vitamin A </b> yang baik untuk mata, meningkatkan kesehatan mukosa dan kornea mata, meningkatkan penglihatan, melindungi mata dari infeksi bakteri atau virus.
+                    </div>
+                </div>
+                <div class="s6-list2-item4 s6-list2-items">
+                    <div class="s6-list2-item-title s6-list2-item-title-bottom">
+                        dan   Zat Gizi
+                    </div>
+                    <div class="s6-list2-item-center">
+                        Ekstrak <br> Sambiloto
+                    </div>
+                    <div class="s6-list2-item-content">
+                        <b>Sambiloto  </b> memiliki khasiat dapat menurunkan glukosa darah sehingga dapat mencegah terjadinya retinopati diabetik.
+                    </div>
+                </div>
+            </div>
+            <h4 class="s6-sost-attencion">
+                KLIK DI SETIAP GRUP SUBSTANSI UNTUK MELIHAT DETAIL
+            </h4>
+        </div>
+    </div>
+    <div id="sec7">
+        <div class="container">
+            <h4>
+                Optikon
+            </h4>
+            <div class="sec7-title-subtitle">
+                Suplemen mata yang paling banyak digunakan saat ini
+            </div>
+            <img class="sec7-image" src="img/prod.png" alt="">
+        </div>
+    </div>
+    <div id="sec8">
+        <div class="container">
+            <h5> KOMBINASI DARI 7 SENYAWA UNTUK MATA KEMBALI CERAH HANYA SETELAH 1 - 3 BULAN PENGGUNAAN </h5>
+            <div class="s8list-wrapper">
+                <img src="img/s8list.png" alt="">
+                <ul>
+                    <li>Anti Bakteri</li>
+                    <li>Vitamin B2</li>
+                    <li>piruvat & <br> laktat.</li>
+                    <li>ALA</li>
+                    <li>Deoksiandro <br> grafolida</li>
+                    <li>polifin</li>
+                </ul>
+            </div>
+            <div class="btn-wrapper">
+                <a class="main-btn toform" href="#order_form">SAYA INGIN MEMBELI Optikon SEKARANG</a>
+                <svg class="button-finger-2" viewBox="0 0 1792 1896.0833"> <path d="M640 128q-53 0-90.5 37.5T512 256v896L361 950q-41-54-107-54-52 0-89 38t-37 90q0 43 26 77l384 512q38 51 102 51h718q22 0 39.5-13.5t22.5-34.5l92-368q24-96 24-194V837q0-41-28-71t-68-30-68 28-28 68h-32v-61q0-48-32-81.5t-80-33.5q-46 0-79 33t-33 79v64h-32v-90q0-55-37-94.5T928 608q-53 0-90.5 37.5T800 736v96h-32V262q0-55-37-94.5T640 128zm0-128q107 0 181.5 77.5T896 262v220q22-2 32-2 99 0 173 69 47-21 99-21 113 0 184 87 27-7 56-7 94 0 159 67.5t65 161.5v217q0 116-28 225l-92 368q-16 64-68 104.5t-118 40.5H640q-60 0-114.5-27.5T435 1690L51 1178q-51-68-51-154 0-105 74.5-180.5T254 768q71 0 130 35V256q0-106 75-181T640 0zm128 1408v-384h-32v384h32zm256 0v-384h-32v384h32zm256 0v-384h-32v384h32z"></path> </svg>
+            </div>
+            <div class="s8-big-list-wrap">
+                <img class="s8-big-list-img" src="img/prod.png" alt="">
+                <ul>
+                    <li>
+                        <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 24 24" class="s8-1" fill="url(&quot;#SHAPE758_desktop_gradient&quot;)">
+                            <defs id="SHAPE758_defs">
+                                <linearGradient id="SHAPE758_desktop_gradient" gradientTransform="rotate(0)">
+                                    <stop offset="0%" stop-color="#ffe259"></stop>
+                                    <stop offset="100%" stop-color="#ffa751"></stop>
+                                </linearGradient>
+                            </defs>
+                            <path d="M19,19H5V5H19M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M12,17H14V7H10V9H12"></path>
+                    </svg>
+                        <div class="title">
+                            Alpha lipoic acid, Quercetin
+                        </div>
+                        <div class="content">
+                            Stres anti-oksidatif menghilangkan radikal bebas - penyebab aglutinasi protein yang menyebabkan katarak
+                        </div>
+                    </li>
+                    <li>
+                        <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 24 24" class="s8-2" fill="url(&quot;#SHAPE759_desktop_gradient&quot;)"><defs id="SHAPE759_defs"><linearGradient id="SHAPE759_desktop_gradient" gradientTransform="rotate(0)"><stop offset="0%" stop-color="#56ab2f"></stop><stop offset="100%" stop-color="#a8e063"></stop></linearGradient></defs> <path d="M15,15H11V13H13A2,2 0 0,0 15,11V9C15,7.89 14.1,7 13,7H9V9H13V11H11A2,2 0 0,0 9,13V17H15M19,19H5V5H19M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z"></path> </svg>
+                        <div class="title">
+                            Deoksiandrografolida
+                        </div>
+                        <div class="content">
+                            Senyawa ini dapat meningkatkan mikrosirkulasi dan menjaga fungsi retinal, serta efektif dalam meningkatkan aliran darah ke retina mata.
+                        </div>
+                    </li>
+                    <li>
+                        <svg  width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 24 24" class="s8-3" fill="url(&quot;#SHAPE760_desktop_gradient&quot;)"><defs id="SHAPE760_defs"><linearGradient id="SHAPE760_desktop_gradient" gradientTransform="rotate(0)"><stop offset="0%" stop-color="#e100ff"></stop><stop offset="100%" stop-color="#7f00ff"></stop></linearGradient></defs> <path d="M15,15V13.5A1.5,1.5 0 0,0 13.5,12A1.5,1.5 0 0,0 15,10.5V9C15,7.89 14.1,7 13,7H9V9H13V11H11V13H13V15H9V17H13A2,2 0 0,0 15,15M19,19H5V5H19M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z"></path> </svg>
+                        <div class="title">
+                            Homo-andrografolida
+                        </div>
+                        <div class="content">
+                            Senyawa andrografolid ini dapat menurunkan aktivitas pembentukan glukosa dari senyawa-senyawa nonkarbohidrat seperti piruvat dan laktat.
+                        </div>
+                    </li>
+                    <li>
+                        <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 24 24" class="s8-4" fill="url(&quot;#SHAPE761_desktop_gradient&quot;)"><defs id="SHAPE761_defs"><linearGradient id="SHAPE761_desktop_gradient" gradientTransform="rotate(0)"><stop offset="0%" stop-color="#00c6ff"></stop><stop offset="100%" stop-color="#0072ff"></stop></linearGradient></defs> <path d="M19,19H5V5H19M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M13,17H15V7H13V11H11V7H9V13H13"></path> </svg>
+                        <div class="title">
+                            Vitamin A
+                        </div>
+                        <div class="content">
+                            dapat menurunkan glukosa darah sehingga dapat mencegah terjadinya retinopati diabetik.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="sec9">
+        <div class="container flex-container">
+            <div class="s9-left">
+                <h5 class="s9-title">
+                    Optikon
+                </h5>
+                <div class="s9-subtitle">
+                    Suplemen Mata Bermanfaat 6 <svg style="margin-left:40px;" id="shape_UXaNUkCgwx" viewBox="0 0 24 24"> <path d="M16.23,18L12,15.45L7.77,18L8.89,13.19L5.16,9.96L10.08,9.54L12,5L13.92,9.53L18.84,9.95L15.11,13.18L16.23,18M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path> </svg>
+                </div>
+                <ul>
+                    <li>
+                        <svg style="position: absolute; left:-40px;top:-2px;" id="shape_UXaNUkCgwx" viewBox="0 0 24 24"> <path d="M16.23,18L12,15.45L7.77,18L8.89,13.19L5.16,9.96L10.08,9.54L12,5L13.92,9.53L18.84,9.95L15.11,13.18L16.23,18M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path> </svg>
+                        Diproduksi di pabrik dengan standar Teknologi berbasis ISO di Indonesia
+                    </li>
+                    <li>
+                        <svg style="position: absolute; left:-40px;top:-2px;" id="shape_UXaNUkCgwx" viewBox="0 0 24 24"> <path d="M16.23,18L12,15.45L7.77,18L8.89,13.19L5.16,9.96L10.08,9.54L12,5L13.92,9.53L18.84,9.95L15.11,13.18L16.23,18M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path> </svg>
+                        Mencegah dan memperlambat perkembangan semua penyakit mata
+                    </li>
+                    <li>
+                        <svg style="position: absolute; left:-40px;top:-2px;" id="shape_UXaNUkCgwx" viewBox="0 0 24 24"> <path d="M16.23,18L12,15.45L7.77,18L8.89,13.19L5.16,9.96L10.08,9.54L12,5L13.92,9.53L18.84,9.95L15.11,13.18L16.23,18M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path> </svg>
+                        Diperiksa dan diberi izin untuk diedarkan oleh BPOM
+                    </li>
+                    <li>
+                        <svg style="position: absolute; left:-40px;top:-2px;" id="shape_UXaNUkCgwx" viewBox="0 0 24 24"> <path d="M16.23,18L12,15.45L7.77,18L8.89,13.19L5.16,9.96L10.08,9.54L12,5L13.92,9.53L18.84,9.95L15.11,13.18L16.23,18M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path> </svg>
+                        Sangat dianjurkan oleh dokter mata, apotek, dan pasien
+                    </li>
+                    <li>
+                        <svg style="position: absolute; left:-40px;top:-8px;" id="shape_UXaNUkCgwx" viewBox="0 0 24 24"> <path d="M16.23,18L12,15.45L7.77,18L8.89,13.19L5.16,9.96L10.08,9.54L12,5L13.92,9.53L18.84,9.95L15.11,13.18L16.23,18M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path> </svg>
+                        Menghindari resiko operasi mata
+                    </li>
+                    <li>
+                        <svg style="position: absolute; left:-40px;top:-9px;" id="shape_UXaNUkCgwx" viewBox="0 0 24 24"> <path d="M16.23,18L12,15.45L7.77,18L8.89,13.19L5.16,9.96L10.08,9.54L12,5L13.92,9.53L18.84,9.95L15.11,13.18L16.23,18M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path> </svg>
+                        Berasal dari alam, tidak ada efek samping
+                    </li>
+                </ul>
+            </div>
+            <div class="s9-right">
+                <img class="s9-main-pic" src="img/s9photo.jpg" alt="">
+                <div class="cert_wrapper">
+                    <img src="img/s1.jpg" alt="">
+                    <img src="img/s2.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sec10">
+        <div class="container">
+            <div class="review-title">
+                Apakah baik minum mata yang jernih? ULASAN LANGSUNG DARI PENGGUNA
+            </div>
+            <div class="reviews_wrapper">
+                <div class="review">
+                    <div class="review-ava">
+                        <img src="img/rev1.jpg" alt="">
+                    </div>
+                    <div class="review-name">
+                        Ibu Annisa  <br>
+                        Customer Service
+                    </div>
+                    <div class="review-content">
+                        Alamat: Bekasi, Jawa Barat <br> Telepon: 0813XXXXXXXX
+                    </div>
+                    <div class="review-content">
+                        “Saya menderita katarak yang berat karena ada bintik hitam, dan bercak seperti benang sutra, sanggul rambut, laba-laba dan lalat terbang di depan mata saya. Lalu saya segera membeli Optikon untuk digunakan. Dan untungnya, hanya dalam waktu 2 bulan, jumlah bercak ini sudah berkurang 70-80%, mata saya bisa melihat dengan jelas kembali.
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="review-ava">
+                        <img src="img/rev2.jpg" alt="">
+                    </div>
+                    <div class="review-name">
+                        Ibu Sukmawati  <br>
+                        Penderita katarak
+                    </div>
+                    <div class="review-content">
+                        Alamat: Jakarta Pusat
+                    </div>
+                    <div class="review-content">
+                        “Mata saya kabur seolah-olah ada kabut, saya hampir tidak dapat melihat apa pun jika saya keluar di bawah sinar matahari karena katarak yang berat, tetapi setelah menghabiskan 10 botol Optikon, penglihatan saya meningkat, semuanya menjadi jelas. jernih dan tajam. "
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="review-ava">
+                        <img src="img/rev3.jpg" alt="">
+                    </div>
+                    <div class="review-name">
+                        Bapak Tarno  <br>
+                        Penderita katarak
+                    </div>
+                    <div class="review-content">
+                        Alamat: Kalimantan Tengah
+                    </div>
+                    <div class="review-content">
+                        “Saya menderita katarak di kedua mata, dokter mengatakan saya tidak bisa mengembalikan penglihatan saya. Tapi mata saya sudah membaik 90%, secerah ketika saya masih muda setelah 1 bulan menggunakan Optikon. Saya menggunakannya untuk waktu yang lama dan merasa baik "
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="review-ava">
+                        <img src="img/rev4.jpg" alt="">
+                    </div>
+                    <div class="review-name">
+                        Bapak Kadito Atmo  <br>
+                        Penderita Katarak
+                    </div>
+                    <div class="review-content">
+                        Alamat: Jl.  Siliwangi, Kota Lembang, Jawa Barat
+                    </div>
+                    <div class="review-content">
+                        “Saya telah menderita katarak selama bertahun-tahun dengan bintik-bintik hitam, yang menyerupai lalat terbang di depan mata saya, tetapi hanya setelah beberapa minggu menggunakan Optikon, mata saya jernih, dan tidak ada titik lagi, ataupun bintik hitam lagi."
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="review-ava">
+                        <img src="img/rev5.jpg" alt="">
+                    </div>
+                    <div class="review-name">
+                        Bapak Ishak <br>
+                        Penderita Katarak dan galukoma
+                    </div>
+                    <div class="review-content">
+                        Alamat: Jl. Jambu Biji, Narogong KM 15, Bekasi Timur, Jawa Barat
+                    </div>
+                    <div class="review-content">
+                        “Mata saya saat ini sedang mengalami katarak dan juga glaukoma. Padahal saya sudah satu kali operasi dan mengikuti pengobatan rutin tapi tetap tidak kunjung membaik, Alhamdulillahnya justru baru saja menggunakan Optikon selama 3 bulan, rasa kabur dan sakit justru hilang "
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="review-ava">
+                        <img src="img/rev6.jpg" alt="">
+                    </div>
+                    <div class="review-name">
+                        Bapak Ismail Ridho   <br>
+                        Penderita degenerasi makula dan katarak
+                    </div>
+                    <div class="review-content">
+                        Alamat: Jakarta Timur
+                    </div>
+                    <div class="review-content">
+                        "Saya mengalami degenerasi makula, katarak, tetapi berkat Optikon, penglihatan saya meningkat dari 3/10 menjadi 5/10 tanpa perlu operasi katarak lagi"
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="review-ava">
+                        <img src="img/rev7.jpg" alt="">
+                    </div>
+                    <div class="review-name">
+                        Bapak Sukamto  <br>
+                        Pasien Berkacamata
+                    </div>
+                    <div class="review-content">
+                        Alamat: Babakan Madang, Sentul, Bogor
+                    </div>
+                    <div class="review-content">
+                        “Pendarahan kristal di mata membuat penglihatan saya keruh dengan banyak titik hitam seperti lalat di depan mata saya. Tapi setelah beberapa bulan meminum Optikon dengan dosis 4 pil sehari, penglihatan saya meningkat 95%, mata saya jernih, tidak ada rasa sakit dan ketidaknyamanan."
+                    </div>
+                </div>
+            </div>
+            <div class="btn-wrapper">
+                <a class="main-btn toform" href="#order_form">SAYA INGIN MENCOBA Optikon</a>
+                <svg class="button-finger-2" viewBox="0 0 1792 1896.0833"> <path d="M640 128q-53 0-90.5 37.5T512 256v896L361 950q-41-54-107-54-52 0-89 38t-37 90q0 43 26 77l384 512q38 51 102 51h718q22 0 39.5-13.5t22.5-34.5l92-368q24-96 24-194V837q0-41-28-71t-68-30-68 28-28 68h-32v-61q0-48-32-81.5t-80-33.5q-46 0-79 33t-33 79v64h-32v-90q0-55-37-94.5T928 608q-53 0-90.5 37.5T800 736v96h-32V262q0-55-37-94.5T640 128zm0-128q107 0 181.5 77.5T896 262v220q22-2 32-2 99 0 173 69 47-21 99-21 113 0 184 87 27-7 56-7 94 0 159 67.5t65 161.5v217q0 116-28 225l-92 368q-16 64-68 104.5t-118 40.5H640q-60 0-114.5-27.5T435 1690L51 1178q-51-68-51-154 0-105 74.5-180.5T254 768q71 0 130 35V256q0-106 75-181T640 0zm128 1408v-384h-32v384h32zm256 0v-384h-32v384h32zm256 0v-384h-32v384h32z"></path> </svg>
+            </div>
+        </div>
+    </div>
+    <div id="sec11">
+        <div class="container">
+            <div class="s11-title">
+                APA KATA AHLI TERKEMUKA DI INDONESIA TENTANG Optikon?
+            </div>
+            <div class="doctors-wrapper">
+                <div class="doctor">
+                    <div class="doctor-ava">
+                        <img src="img/doc1.png" alt="">
+                    </div>
+                    <div class="doctor-content">
+                        <div class="doctor-content-title">
+                            <b>Prof. Dr. Muslim Rahmat - Wakil Ketua Asosiasi Suplemen untuk Tubuh; Direktur pusat efek samping obat (ADR)</b>
+                        </div>
+                        <div class="doctor-content-text">
+                            <i>
+                                “Optikon adalah produk yang menyatukan unsur-unsur untuk membantu melindungi mata dari katarak, degenerasi makula, dan penyakit mata lainnya. Pasien harus menggunakan Optikon lebih awal untuk mencegah serta memperlambat perkembangan penyakit "
+                            </i>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor">
+                    <div class="doctor-ava">
+                        <img src="img/doc2.png" alt="">
+                    </div>
+                    <div class="doctor-content">
+                        <div class="doctor-content-title">
+                            <b>Prof., Dr. Henry Tajono - Mantan Direktur Rumah Sakit Mata </b>
+                        </div>
+                        <div class="doctor-content-text">
+                            <i>
+                                “Orang tua dan secara teratur bekerja menggunakan komputer, perangkat elektronik atau terpapar sinar matahari dan cahaya yang kuat adalah subjek yang berisiko tinggi terkena katarak, degenerasi makula, mata kering, kelainan refraksi, dan menyebabkan gangguan penglihatan yang serius. Namun, kami dapat sepenuhnya mencegah penyakit mata ini sejak dini dengan menyiapkan pola makan harian yang sehat, dan  dikombinasikan dengan suplemen mata Optikon setiap hari "
+                            </i>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor">
+                    <div class="doctor-ava">
+                        <img src="img/doc3.png" alt="">
+                    </div>
+                    <div class="doctor-content">
+                        <div class="doctor-content-title">
+                            <b>Prof. Dr. Ratna Mukti - Mantan Direktur Rumah Sakit Mata di Sumatera</b>
+                        </div>
+                        <div class="doctor-content-text">
+                            <i>
+                                “Selain bekerja dengan obat yang diresepkan, pasien harus menggunakan produk pelengkap yang sesuai, seperti  suplemen mata yang sangat baik untuk kesehatan mata, Optikon yang punya tingkat efektivitas penyakit mata "
+                            </i>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor">
+                    <div class="doctor-ava">
+                        <img src="img/doc4.png" alt="">
+                    </div>
+                    <div class="doctor-content">
+                        <div class="doctor-content-title">
+                            <b>Dokter Spm Martha Wicaksono - Mantan Kepala Departemen Mata, Rumah Sakit Mata Pusat</b>
+                        </div>
+                        <div class="doctor-content-text">
+                            <i>
+                                “Jika ingin melindungi kesehatan Anda atau memulihkan kekuatan mata sejak awal, agar pandangan mata dan penglihatan mata tidak kabur, Anda harus minum suplemen mata seperti Optikon- suplemen khusus untuk mendukun pengobatan penyakit dengan memberikan nutrisi yang cukup,faktor anti penuaan, dan melindungi mata.
+                                (Saat berkonsultasi program dengan para ahli "Solusi untuk mencegah dan mengobati penyakit mata")
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-wrapper">
+                <a class="main-btn-second toform" href="#order_form">SAYA INGIN MEMBELI Optikon SEKARANG</a>
+            </div>
+        </div>
+    </div>
+    <div id="sec12">
+        <div class="container">
+            <div class="sec-title">
+                6 KEUNTUNGAN YANG ANDA DAPATKAN SAAT MEMBELI DI SINI HARI INI
+            </div>
+            <div class="s12-doc">
+                <div class="item1">
+                    <img src="img/s12-doc.png" alt="">
+                </div>
+                <ul class="s12-left">
+                    <li>
+                        Dibimbing oleh tim Apoteker Universitas yang berkualifikasi tinggi
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 2304 1896.0833" class="s12-icon1" fill="rgba(186, 15, 7, 1.0)"> <path d="M1774 836l18 316q4 69-82 128t-235 93.5-323 34.5-323-34.5-235-93.5-82-128l18-316 574 181q22 7 48 7t48-7zm530-324q0 23-22 31L1162 895q-4 1-10 1t-10-1L490 689q-43 34-71 111.5T385 979q63 36 63 109 0 69-58 107l58 433q2 14-8 25-9 11-24 11H224q-15 0-24-11-10-11-8-25l58-433q-58-38-58-107 0-73 65-111 11-207 98-330L22 543q-22-8-22-31t22-31l1120-352q4-1 10-1t10 1l1120 352q22 8 22 31z"></path> </svg>
+                    </li>
+                    <li>
+                        Perawata berkelanjutan setiap minggu, selama sebulan  pemakaian
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 1792 1896.0833" class="s12-icon1" fill="rgba(232, 141, 48, 1.0)"> <path d="M896 1664q-26 0-44-18l-624-602q-10-8-27.5-26T145 952.5 77 855 23.5 734 0 596q0-220 127-344t351-124q62 0 126.5 21.5t120 58T820 276t76 68q36-36 76-68t95.5-68.5 120-58T1314 128q224 0 351 124t127 344q0 221-229 450l-623 600q-18 18-44 18z"></path> </svg>
+                    </li>
+                    <li>
+                        Siap sedia menjawab pertanyaan.
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 24 24" class="s12-icon1" fill="rgba(231, 218, 3, 1.0)"> <path d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"></path> </svg>
+                    </li>
+                    <li>
+                        100% asli Pengiriman Nasional dan bisa bayar di rumah
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 1792 1896.0833" class="s12-icon1" fill="rgba(32, 20, 159, 1.0)"> <path d="M640 1408q0-52-38-90t-90-38-90 38-38 90 38 90 90 38 90-38 38-90zM256 896h384V640H482q-13 0-22 9L265 844q-9 9-9 22v30zm1280 512q0-52-38-90t-90-38-90 38-38 90 38 90 90 38 90-38 38-90zm256-1088v1024q0 15-4 26.5t-13.5 18.5-16.5 11.5-23.5 6-22.5 2-25.5 0-22.5-.5q0 106-75 181t-181 75-181-75-75-181H768q0 106-75 181t-181 75-181-75-75-181h-64q-3 0-22.5.5t-25.5 0-22.5-2-23.5-6-16.5-11.5-13.5-18.5-4-26.5q0-26 19-45t45-19V960q0-8-.5-35t0-38 2.5-34.5 6.5-37 14-30.5 22.5-30l198-198q19-19 50.5-32t58.5-13h160V320q0-26 19-45t45-19h1024q26 0 45 19t19 45z"></path> </svg>
+                    </li>
+                    <li>
+                        Harga spesial dan dapatkan promo menarik lainnya.
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 24 24" class="s12-icon1" fill="rgba(48, 131, 232, 1.0)"> <path d="M20,14H4V8H9.08L7,10.83L8.62,12L11,8.76L12,7.4L13,8.76L15.38,12L17,10.83L14.92,8H20M20,19H4V17H20M9,4A1,1 0 0,1 10,5A1,1 0 0,1 9,6A1,1 0 0,1 8,5A1,1 0 0,1 9,4M15,4A1,1 0 0,1 16,5A1,1 0 0,1 15,6A1,1 0 0,1 14,5A1,1 0 0,1 15,4M20,6H17.82C17.93,5.69 18,5.35 18,5A3,3 0 0,0 15,2C13.95,2 13.04,2.54 12.5,3.35L12,4L11.5,3.34C10.96,2.54 10.05,2 9,2A3,3 0 0,0 6,5C6,5.35 6.07,5.69 6.18,6H4C2.89,6 2,6.89 2,8V19C2,20.11 2.89,21 4,21H20C21.11,21 22,20.11 22,19V8C22,6.89 21.11,6 20,6Z"></path> </svg>
+                    </li>
+                    <li>
+                        Dapatkan segera e-guide "Perawatan dan Perlindungan Mata"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 1664 1896.0833" class="s12-icon1" fill="rgba(22, 178, 42, 1.0)"> <path d="M1639 478q40 57 18 129l-275 906q-19 64-76.5 107.5T1183 1664H260q-77 0-148.5-53.5T12 1479q-24-67-2-127 0-4 3-27t4-37q1-8-3-21.5t-3-19.5q2-11 8-21t16.5-23.5T52 1179q23-38 45-91.5t30-91.5q3-10 .5-30t-.5-28q3-11 17-28t17-23q21-36 42-92t25-90q1-9-2.5-32t.5-28q4-13 22-30.5t22-22.5q19-26 42.5-84.5T340 411q1-8-3-25.5t-2-26.5q2-8 9-18t18-23 17-21q8-12 16.5-30.5t15-35 16-36 19.5-32 26.5-23.5 36-11.5T556 134l-1 3q38-9 51-9h761q74 0 114 56t18 130l-274 906q-36 119-71.5 153.5T1025 1408H156q-27 0-38 15-11 16-1 43 24 70 144 70h923q29 0 56-15.5t35-41.5l300-987q7-22 5-57 38 15 59 43zm-1064 2q-4 13 2 22.5t20 9.5h608q13 0 25.5-9.5T1247 480l21-64q4-13-2-22.5t-20-9.5H638q-13 0-25.5 9.5T596 416zm-83 256q-4 13 2 22.5t20 9.5h608q13 0 25.5-9.5T1164 736l21-64q4-13-2-22.5t-20-9.5H555q-13 0-25.5 9.5T513 672z"></path> </svg>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="sec13">
+        <div class="container">
+            <div class="sec-title">
+                PETUNJUK UNTUK MEMESAN
+            </div>
+            <div class="sub-title">
+                HOTLINE: 0813-1150-0523
+            </div>
+            <div class="shipping-wrapper">
+                <ul>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 1792 1896.0833" class="shipping-icon" fill="rgba(255, 199, 1, 1.0)"> <path d="M888 1184l116-116-152-152-116 116v56h96v96h56zm440-720q-16-16-33 1L945 815q-17 17-1 33t33-1l350-350q17-17 1-33zm80 594v190q0 119-84.5 203.5T1120 1536H288q-119 0-203.5-84.5T0 1248V416q0-119 84.5-203.5T288 128h832q63 0 117 25 15 7 18 23 3 17-9 29l-49 49q-14 14-32 8-23-6-45-6H288q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113v-126q0-13 9-22l64-64q15-15 35-7t20 29zm-96-738l288 288-672 672H640V992zm444 132l-92 92-288-288 92-92q28-28 68-28t68 28l152 152q28 28 28 68t-28 68z"></path> </svg>
+                        Klik tombol PESAN SEKARANG dan mengisi semua informasi untuk mendaftar
+                        <svg class="shape_ZDUuhGXwKd" viewBox="0 0 1007.6886 1896.0833"> <path d="M765 1299q8 19-5 35l-350 384q-10 10-23 10-14 0-24-10L8 1334q-13-16-5-35 9-19 29-19h224V32q0-14 9-23t23-9h192q14 0 23 9t9 23v1248h224q21 0 29 19z"></path> </svg>
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 1536 1896.0833" class="shipping-icon1" fill="rgba(255, 199, 1, 1.0)"> <path d="M1280 1193q0-11-2-16-3-8-38.5-29.5T1151 1098l-53-29q-5-3-19-13t-25-15-21-5q-18 0-47 32.5t-57 65.5-44 33q-7 0-16.5-3.5T853 1157t-17-9.5-14-8.5q-99-55-170.5-126.5T525 842q-2-3-8.5-14t-9.5-17-6.5-15.5T497 779q0-13 20.5-33.5t45-38.5 45-39.5T628 631q0-10-5-21t-15-25-13-19q-3-6-15-28.5T555 492t-26.5-47.5-25-40.5-16.5-18-16-2q-48 0-101 22-46 21-80 94.5T256 631q0 16 2.5 34t5 30.5 9 33 10 29.5 12.5 33 11 30q60 164 216.5 320.5T843 1358q6 2 30 11t33 12.5 29.5 10 33 9 30.5 5 34 2.5q57 0 130.5-34t94.5-80q22-53 22-101zm256-777v960q0 119-84.5 203.5T1248 1664H288q-119 0-203.5-84.5T0 1376V416q0-119 84.5-203.5T288 128h960q119 0 203.5 84.5T1536 416z"></path> </svg>
+                        Kami akan menelepon untuk konfirmasi informasi dan mengirim pesanan
+                        <svg class="shape_ZDUuhGXwKd" viewBox="0 0 1007.6886 1896.0833"> <path d="M765 1299q8 19-5 35l-350 384q-10 10-23 10-14 0-24-10L8 1334q-13-16-5-35 9-19 29-19h224V32q0-14 9-23t23-9h192q14 0 23 9t9 23v1248h224q21 0 29 19z"></path> </svg>
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 1408.0003 1896.0833" class="shipping-icon" fill="rgba(255, 199, 1, 1.0)"> <path d="M1376 160q44 52 12 148t-108 172l-161 161 160 696q5 19-12 33l-128 96q-7 6-19 6-4 0-7-1-15-3-21-16L813 947l-259 259 53 194q5 17-8 31l-96 96q-9 9-23 9h-2q-15-2-24-13l-189-252-252-189q-11-7-13-23-1-13 9-25l96-97q9-9 23-9 6 0 8 1l194 53 259-259L81 444q-14-8-17-24-2-16 9-27l128-128q14-13 30-8l665 159 160-160q76-76 172-108t148 12z"></path> </svg>
+                        Produk dikirim dalam waktu sekitar 1-3 hari
+                        <svg class="shape_ZDUuhGXwKd" viewBox="0 0 1007.6886 1896.0833"> <path d="M765 1299q8 19-5 35l-350 384q-10 10-23 10-14 0-24-10L8 1334q-13-16-5-35 9-19 29-19h224V32q0-14 9-23t23-9h192q14 0 23 9t9 23v1248h224q21 0 29 19z"></path> </svg>
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 1128.1586 1896.0833" class="shipping-icon3" fill="rgba(255, 199, 1, 1.0)"> <path d="M978 1185q0 153-99.5 263.5T620 1585v175q0 14-9 23t-23 9H453q-13 0-22.5-9.5T421 1760v-175q-66-9-127.5-31T192 1509.5t-74-48-46.5-37.5-17.5-18q-17-21-2-41l103-135q7-10 23-12 15-2 24 9l2 2q113 99 243 125 37 8 74 8 81 0 142.5-43t61.5-122q0-28-15-53t-33.5-42-58.5-37.5-66-32-80-32.5q-39-16-61.5-25T349 948.5t-62.5-31T230 882t-53.5-42.5-43.5-49-35.5-58-21-66.5-8.5-78q0-138 98-242t255-134V32q0-13 9.5-22.5T453 0h135q14 0 23 9t9 23v176q57 6 110.5 23t87 33.5T881 302t39 29 15 14q17 18 5 38l-81 146q-8 15-23 16-14 3-27-7-3-3-14.5-12t-39-26.5-58.5-32-74.5-26T537 430q-95 0-155 43t-60 111q0 26 8.5 48t29.5 41.5 39.5 33 56 31 60.5 27 70 27.5q53 20 81 31.5t76 35 75.5 42.5 62 50 53 63.5T965 1091t13 94z"></path> </svg>
+                        Anda membayar setelah menerima produk
+                    </li>
+                </ul>
+            </div>
+            <div class="btn-wrapper">
+                <a style="padding: 25px 20px;" class="main-btn toform" href="#order_form">PESAN SEKARANG</a>
+                <svg class="button-finger-2" viewBox="0 0 1792 1896.0833"> <path d="M640 128q-53 0-90.5 37.5T512 256v896L361 950q-41-54-107-54-52 0-89 38t-37 90q0 43 26 77l384 512q38 51 102 51h718q22 0 39.5-13.5t22.5-34.5l92-368q24-96 24-194V837q0-41-28-71t-68-30-68 28-28 68h-32v-61q0-48-32-81.5t-80-33.5q-46 0-79 33t-33 79v64h-32v-90q0-55-37-94.5T928 608q-53 0-90.5 37.5T800 736v96h-32V262q0-55-37-94.5T640 128zm0-128q107 0 181.5 77.5T896 262v220q22-2 32-2 99 0 173 69 47-21 99-21 113 0 184 87 27-7 56-7 94 0 159 67.5t65 161.5v217q0 116-28 225l-92 368q-16 64-68 104.5t-118 40.5H640q-60 0-114.5-27.5T435 1690L51 1178q-51-68-51-154 0-105 74.5-180.5T254 768q71 0 130 35V256q0-106 75-181T640 0zm128 1408v-384h-32v384h32zm256 0v-384h-32v384h32zm256 0v-384h-32v384h32z"></path> </svg>
+            </div>
+            <div style="margin-top:50px;margin-bottom: 20px;" class="sec-title">
+                KEMASAN DAN CARA MENGGUNAKAN Optikon
+            </div>
+            <div class="flex-container max-width-800">
+                <div class="s13left">
+                    <p>
+                       <b> Pengolahan, pengemasan</b>
+                    </p>
+                    <ul>
+                        <li>
+                            - Terdapat kapsul di dalam satu botol Optikon
+                        </li>
+                        <li>
+                            - Box berisi 1  botol yang berisi 30 kapsul.
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            Penggunaan, dosis
+                        </li>
+                        <li>
+                            - Minum 2 kapsul setiap minum, 2 kali sehari.
+                        </li>
+                        <li>
+                            - Minum setelah makan makan
+                        </li>
+                    </ul>
+                </div>
+                <div class="s13right">
+                    <img src="img/prod.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sec14">
+        <div class="container">
+            <div style="max-width: 800px;" class="sec-title">
+                PEMESANAN UNTUK MEMBELI Optikon ASLI
+            </div>
+            <div class="order-sub-title">
+                <i>
+                    Coba keberuntungan kamu dengan Daftarkan diri di sini
+                </i>
+            </div>
+            <div class="flex-container">
+                <div class="s14-left">
+                    <img src="img/prod.png" alt="">
+                    <!-- <div class="discount bottom-discount">
+                        <div class="discount-triangle">50%</div>
+                        <div class="discount-price">
+                            <span class="price-small">780.000 IDR</span> <br>
+                            <span>390.000 IDR/produk</span>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="s14-right">
+                    <div class="form bottom">
+                    <section class="sale">
+                                <div>
+                                    <p>diskon<br>-50%</p>
+                                </div>
+                            </section>
+                            <footer id="form_footer">
+                                <div class=" clearfix" id="form">
+                                    <div class="bet_price">
+                                        <p class="old_price">Harga lama: <span>780000 IDR</span></p>
+                                        <p class="new_price">Harga baru: <br> <span>390000 IDR</span></p>
+                                    </div>
+                                    <div class="counter_wrap">
+                                        <p>PENAWARAN INI BERAKHIR</p>
+                                        <div class="timer-block countdownHolder countdown_please" id="countdown">
+                                <span class="countHours">
+                                <span class="position">
+                                <span class="digit static hours" style="opacity: 1;">00</span>
+                                </span>
+                                </span>
+                                <span class="countMinutes">
+                                <span class="position">
+                                <span class="digit static mins" style="opacity: 1;">17</span>
+                                </span>
+                                </span>
+                                <span class="countSeconds">
+                                <span class="position">
+                                <span class="digit static secs" style="opacity: 1;">00</span>
+                                </span>
+                                </span>
+                                </div>
+                                </div>
+                                <form id="order_form" action="lead.php" method="post" onsubmit="validateform(this); return false;">
+
+                                <div class="scrollform"></div>
+                                <div>
+                                    <input class="inp" name="name" placeholder="Nama" type="text" required="">
+                                </div>
+                                <div id="for_inp">
+                                    <input class="inp only_number" name="phone" placeholder="Telefon" type="tel" required="">
+                                </div>
+                                <button id="mainButton" class="btn js_submit button__text s__on" type="submit" value="">PESAN</button>
+                                </form>
+                                </div>
+                            </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="composition-wrapper">
+    <div class="composition-body">
+        <div class="composition-title">
+            1. Antioksidan bisa menghilangkan radikal bebas, melindungi struktur mata, mencegah segala penyakit mata
+        </div>
+        <div class="composition-content">
+        Antioksidan dan ampuh melawan stres oksidatif,  antosianosid dan polifenol sebagai senyawa antioksidan yang bagus untuk melindungi mata dan menjaga penglihatan. Senyawa ini dapat meningkatkan mikrosirkulasi dan menjaga fungsi retinal, serta efektif dalam meningkatkan aliran darah ke retina mata, dan juga diindikasikan pada penderita degenerasi makula, katarak, retinopati diabetik dan meningkatkan penglihatannya pada malam hari.
+        Antioksidan dan ampuh melawan stres oksidatif,  antosianosid dan polifenol sebagai senyawa antioksidan yang bagus untuk melindungi mata dan menjaga penglihatan. Senyawa ini dapat meningkatkan mikrosirkulasi dan menjaga fungsi retinal, serta efektif dalam meningkatkan aliran darah ke retina mata, dan juga diindikasikan pada penderita degenerasi makula, katarak, retinopati diabetik dan meningkatkan penglihatannya pada malam hari.
+        </div>
+    </div>
+</div>
+<script src="js/jquery-1.12.1.min.js" type="text/javascript"></script>
+<script src="js/slick.min.js" type="text/javascript"></script>
+<script src="js/timer.js"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>
